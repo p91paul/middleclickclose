@@ -1,0 +1,9 @@
+{"shell-version": ["3.5", "3.6"],
+ "settings-schema": "org.gnome.shell.extensions.middleclickclose", 
+ "uuid": "middleclickclose@paolo.tranquilli.gmail.com",
+ "name": "Quick Close in Overview",
+ "description": "Close windows with a button click (the middle one by default) when in overview mode",
+ "url": "http://cs.unibo.it/~tranquil/en/hacking.html",
+ "original-authors": [ "Paolo Tranquilli" ],
+ "locale": "/usr/local/share/locale"
+}
