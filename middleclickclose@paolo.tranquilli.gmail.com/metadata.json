@@ -1,5 +1,5 @@
-{"shell-version": ["3.5", "3.6","3.8","3.10"],
- "settings-schema": "org.gnome.shell.extensions.middleclickclose", 
+{"shell-version": ["3.5", "3.6","3.8","3.10", "3.12"],
+ "settings-schema": "org.gnome.shell.extensions.middleclickclose",
  "uuid": "middleclickclose@paolo.tranquilli.gmail.com",
  "name": "Quick Close in Overview",
  "description": "Close windows with a button click (the middle one by default) when in overview mode",
