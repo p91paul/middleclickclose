@@ -1,4 +1,4 @@
-{"shell-version": ["3.5", "3.6","3.8","3.10", "3.12", "3.14"],
+{"shell-version": ["3.5", "3.6","3.8","3.10", "3.12", "3.14", "3.16"],
  "settings-schema": "org.gnome.shell.extensions.middleclickclose",
  "uuid": "middleclickclose@paolo.tranquilli.gmail.com",
  "name": "Quick Close in Overview",
