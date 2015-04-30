@@ -3,7 +3,7 @@
  "uuid": "middleclickclose@paolo.tranquilli.gmail.com",
  "name": "Quick Close in Overview",
  "description": "Close windows with a button click (the middle one by default) when in overview mode",
- "url": "http://cs.unibo.it/~tranquil/en/hacking.html",
+ "url": "https://github.com/p91paul/middleclickclose",
  "original-authors": [ "Paolo Tranquilli" ],
  "locale": "/usr/local/share/locale"
 }
