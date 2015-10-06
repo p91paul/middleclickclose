@@ -176,8 +176,7 @@ function createIntSetting(settings, setting) {
     let adjustment = new Gtk.Adjustment({ lower: settings[setting].min || 0,
                                           upper: settings[setting].max || 65535,
                                           step_increment: settings[setting].step || 1});
-    let setting_int = new Gtk.SpinButton({adjustment: adjustment,
-                                          snap_to_ticks: true});
+    let setting_int = new Gtk.SpinButton({adjustment: adjustment});
     setting_int.set_value(gsettings.get_int(setting.replace('_', '-')));
     setting_int.connect('value-changed', function(entry) {
         gsettings.set_int(setting.replace('_', '-'), entry.value);
