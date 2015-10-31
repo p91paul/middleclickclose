@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-10-30 07:06+0100\n"
+"PO-Revision-Date: 2015-10-30 07:08+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"Last-Translator: Juraj Fiala <doctorjellyface@riseup.net>\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Language: sk\n"
+
+#: ../../../prefs.js:33
+msgid "Mouse button to close"
+msgstr "Tlačidlo myši na zavretie"
+
+#: ../../../prefs.js:34
+msgid "Which mouse button triggers closing in overview."
+msgstr "Ktoré tlačidlo myši spustí zavretie v prehľade aktivít."
+
+#: ../../../prefs.js:36
+msgid "Left"
+msgstr "Ľavé"
+
+#: ../../../prefs.js:37
+msgid "Middle"
+msgstr "Stredné"
+
+#: ../../../prefs.js:38
+msgid "Right"
+msgstr "Pravé"
+
+#: ../../../prefs.js:39
+msgid "Button 4"
+msgstr "Tlačidlo 4"
+
+#: ../../../prefs.js:40
+msgid "Button 5"
+msgstr "Tlačidlo 5"
+
+#: ../../../prefs.js:41
+msgid "Button 6"
+msgstr "Tlačidlo 6"
+
+#: ../../../prefs.js:42
+msgid "Button 7"
+msgstr "Tlačidlo 7"
+
+#: ../../../prefs.js:43
+msgid "Button 8"
+msgstr "Tlačidlo 8"
+
+#: ../../../prefs.js:44
+msgid "Button 9"
+msgstr "Tlačidlo 9"
+
+#: ../../../prefs.js:50
+msgid "Rearrange delay"
+msgstr "Oneskorenie preskúpenia"
+
+#: ../../../prefs.js:51
+msgid ""
+"How much time must pass with the pointer not moving for windows in overview "
+"to rearrange after one was closed."
+msgstr ""
+"Koľko času musí prejsť od posledného pohnutia kurzora myši aby sa okná v "
+"prehľade znovu usporiadali po tom ako bolo jedno zavreté."
