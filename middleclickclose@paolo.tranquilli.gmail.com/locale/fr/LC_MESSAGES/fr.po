@@ -64,7 +64,7 @@ msgstr "Bouton 9"
 
 #: ../../../prefs.js:50
 msgid "Rearrange delay"
-msgstr "Délai avant réarrangement de la Vue d'ensemble"
+msgstr "Délai avant réarrangement"
 
 #: ../../../prefs.js:51
 msgid ""
