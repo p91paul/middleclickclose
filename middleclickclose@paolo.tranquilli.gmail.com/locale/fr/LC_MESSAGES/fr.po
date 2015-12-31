@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-30 07:06+0100\n"
+"PO-Revision-Date: 2015-12-30 07:08+0100\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.5\n"
+"Last-Translator: DAEM Q.\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Language: fr\n"
+
+#: ../../../prefs.js:33
+msgid "Mouse button to close"
+msgstr "Bouton de souris pour fermer la fenêtre"
+
+#: ../../../prefs.js:34
+msgid "Which mouse button triggers closing in overview."
+msgstr "Le bouton de la souris qui déclenche la fermeture d'une fenêtre dans la Vue d'ensemble."
+
+#: ../../../prefs.js:36
+msgid "Left"
+msgstr "Gauche"
+
+#: ../../../prefs.js:37
+msgid "Middle"
+msgstr "Milieu"
+
+#: ../../../prefs.js:38
+msgid "Right"
+msgstr "Droit"
+
+#: ../../../prefs.js:39
+msgid "Button 4"
+msgstr "Bouton 4"
+
+#: ../../../prefs.js:40
+msgid "Button 5"
+msgstr "Bouton 5"
+
+#: ../../../prefs.js:41
+msgid "Button 6"
+msgstr "Bouton 6"
+
+#: ../../../prefs.js:42
+msgid "Button 7"
+msgstr "Bouton 7"
+
+#: ../../../prefs.js:43
+msgid "Button 8"
+msgstr "Bouton 8"
+
+#: ../../../prefs.js:44
+msgid "Button 9"
+msgstr "Bouton 9"
+
+#: ../../../prefs.js:50
+msgid "Rearrange delay"
+msgstr "Délai avant réarrangement"
+
+#: ../../../prefs.js:51
+msgid ""
+"How much time must pass with the pointer not moving for windows in overview "
+"to rearrange after one was closed."
+msgstr ""
+"Temps qu'il doit se passer sans que le pointeur de la souris ne bouge dans la Vue d'ensemble "
+"avant réarrangement des fenêtres."
