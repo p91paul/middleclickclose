@@ -1,9 +1,14 @@
-{"shell-version": ["3.5", "3.6","3.8","3.10", "3.12", "3.14", "3.16", "3.18"],
- "settings-schema": "org.gnome.shell.extensions.middleclickclose",
- "uuid": "middleclickclose@paolo.tranquilli.gmail.com",
- "name": "Quick Close in Overview",
- "description": "Close windows with a button click (the middle one by default) when in overview mode",
- "url": "https://github.com/p91paul/middleclickclose",
- "original-authors": [ "Paolo Tranquilli" ],
- "locale": "/usr/local/share/locale"
+{
+	"shell-version": [
+		"3.5","3.6","3.8",
+		"3.10","3.12","3.14","3.16","3.18",
+		"3.20"
+	],
+	"settings-schema": "org.gnome.shell.extensions.middleclickclose",
+	"uuid": "middleclickclose@paolo.tranquilli.gmail.com",
+	"name": "Quick Close in Overview",
+	"description": "Close windows with a button click (the middle one by default) when in overview mode",
+	"url": "https://github.com/p91paul/middleclickclose",
+	"original-authors": [ "Paolo Tranquilli" ],
+	"locale": "/usr/local/share/locale"
 }
