@@ -100,7 +100,7 @@ const Init = new Lang.Class({
 
 			// this is the bit that changes
 			//always more than 0ms
-			this._repositionWindowsId = Mainloop.timeout_add(Math.min(init._rearrangeDelay,1),
+			this._repositionWindowsId = Mainloop.timeout_add(Math.max(init._rearrangeDelay,1),
 								Lang.bind(this, this._delayedWindowRepositioning));
 		};
 		
