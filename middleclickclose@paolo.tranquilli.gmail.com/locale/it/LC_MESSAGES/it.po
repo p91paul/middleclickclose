@@ -24,7 +24,7 @@ msgstr "Pulsante del mouse per chiudere la finestra"
 
 #: ../../../prefs.js:34
 msgid "Which mouse button triggers closing in overview."
-msgstr "Seleziona il quale pulsante del mouse premere per chiudere una finestra."
+msgstr "Seleziona quale pulsante del mouse premere per chiudere una finestra."
 
 #: ../../../prefs.js:36
 msgid "Left"
