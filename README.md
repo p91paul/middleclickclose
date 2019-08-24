@@ -18,5 +18,6 @@ Otherwise you may
     glib-compile-schemas $HOME/.local/share/gnome-shell/extensions/middleclickclose@paolo.tranquilli.gmail.com/schemas
 ```
 
-* reload gnome-shell (Alt-F2, r, Enter) 
+* reload gnome-shell (Alt-F2, r, Enter)
 * activate it through Gnome Tweak Tool.
+![](tweak-tool-screenshot.png)
