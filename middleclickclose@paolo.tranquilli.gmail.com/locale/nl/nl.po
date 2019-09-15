@@ -1,0 +1,74 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Heimen Stoffels <vistausss@outlook.com>, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-30 07:06+0100\n"
+"PO-Revision-Date: 2019-09-15 20:17+0200\n"
+"Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: it\n"
+
+#: ../../../prefs.js:33
+msgid "Mouse button to close"
+msgstr "Muisknop om vensters mee te sluiten"
+
+#: ../../../prefs.js:34
+msgid "Which mouse button triggers closing in overview."
+msgstr "Met welke muisknop je vensters kunt sluiten op het overzicht."
+
+#: ../../../prefs.js:36
+msgid "Left"
+msgstr "Links"
+
+#: ../../../prefs.js:37
+msgid "Middle"
+msgstr "Scrollwiel"
+
+#: ../../../prefs.js:38
+msgid "Right"
+msgstr "Rechts"
+
+#: ../../../prefs.js:39
+msgid "Button 4"
+msgstr "Knop 4"
+
+#: ../../../prefs.js:40
+msgid "Button 5"
+msgstr "Knop 5"
+
+#: ../../../prefs.js:41
+msgid "Button 6"
+msgstr "Knop 6"
+
+#: ../../../prefs.js:42
+msgid "Button 7"
+msgstr "Knop 7"
+
+#: ../../../prefs.js:43
+msgid "Button 8"
+msgstr "Knop 8"
+
+#: ../../../prefs.js:44
+msgid "Button 9"
+msgstr "Knop 9"
+
+#: ../../../prefs.js:50
+msgid "Rearrange delay"
+msgstr "Vertraging bij herschikken"
+
+#: ../../../prefs.js:51
+msgid ""
+"How much time must pass with the pointer not moving for windows in "
+"overview to rearrange after one was closed."
+msgstr ""
+"Hoeveel tijd er moet verstrijken na het sluiten van een venster voordat "
+"vensters worden herschikt."
