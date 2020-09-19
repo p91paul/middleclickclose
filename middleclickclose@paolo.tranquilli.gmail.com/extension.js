@@ -83,6 +83,7 @@ const Init = new Lang.Class({
 		Workspace.Workspace.prototype._addWindowClone = function(metaWindow) {
 			let clone = init._oldAddWindowClone(metaWindow);
 			clone.get_actions()[0].connect('clicked', onClicked.bind(clone));
+			return clone;
 		}
 
 		// override WindowClone's _activate
