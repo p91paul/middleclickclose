@@ -25,6 +25,7 @@ const Lang = imports.lang;
 const St = imports.gi.St;
 const Main = imports.ui.main;
 const Workspace = imports.ui.workspace
+const WindowPreview = imports.ui.windowPreview
 const Mainloop = imports.mainloop;
 const ExtensionUtils = imports.misc.extensionUtils;
 
@@ -35,7 +36,7 @@ const Init = new Lang.Class({
 	Name: 'MiddleClick.Init',
 
 	_init: function () {
-		this._oldOnClicked = Workspace.WindowClone.prototype._onClicked;
+		this._oldActivate = WindowPreview.prototype._activate;
 		this._oldDoRemoveWindow = Workspace.Workspace.prototype._doRemoveWindow;
 		this._settings = Lib.getSettings(Me);
 		this._setCloseButton();
@@ -66,13 +67,13 @@ const Init = new Lang.Class({
 		// I'll go with a closure, not sure how to do it otherwise
 		let init = this;
 
-		// override WindowClone's _onClicked
-		Workspace.WindowClone.prototype._onClicked = function(action, actor) {
+		// override WindowClone's _activate
+		WindowPreview.prototype._activate = function(action, actor) {
 			this._selected = true;
 			if (action.get_button() == init._closeButton) {
 				this.metaWindow.delete(global.get_current_time());
 			} else {
-				init._oldOnClicked.apply(this, [action, actor]);
+				init._oldActivate.apply(this, [action, actor]);
 			}
 		};
 
@@ -107,7 +108,7 @@ const Init = new Lang.Class({
 	},
 
 	disable: function() {
-		Workspace.WindowClone.prototype._onClicked = this._oldOnClicked;
+		WindowPreview.prototype._activate = this._oldActivate;
 		Workspace.Workspace.prototype._doRemoveWindow = this._oldDoRemoveWindow;
 		this._disconnectSettings();
 	}
