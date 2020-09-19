@@ -25,7 +25,7 @@ const Lang = imports.lang;
 const St = imports.gi.St;
 const Main = imports.ui.main;
 const Workspace = imports.ui.workspace
-const WindowPreview = imports.ui.windowPreview
+const WindowPreview = imports.ui.windowPreview.WindowPreview
 const Mainloop = imports.mainloop;
 const ExtensionUtils = imports.misc.extensionUtils;
 
