@@ -38,24 +38,26 @@ const Init = new Lang.Class({
 	_init: function () {
 		this._oldActivate = WindowPreview.prototype._activate;
 		this._oldDoRemoveWindow = Workspace.Workspace.prototype._doRemoveWindow;
+		this._oldAddWindowClone = Workspace.Workspace.prototype._addWindowClone;
 		this._settings = Lib.getSettings(Me);
+		this._oldDelay = Workspace.WINDOW_REPOSITIONING_DELAY;
 		this._setCloseButton();
 		this._setRearrangeDelay();
 	},
 
-    _connectSettings: function() {
+  _connectSettings: function() {
         this._settingsSignals = [];
         this._settingsSignals.push(this._settings.connect('changed::'+CLOSE_BUTTON, Lang.bind(this, this._setCloseButton)));
         this._settingsSignals.push(this._settings.connect('changed::'+REARRANGE_DELAY, Lang.bind(this, this._setRearrangeDelay)));
 	},
 
-    _disconnectSettings: function() {
+  _disconnectSettings: function() {
         while(this._settingsSignals.length > 0) {
 			this._settings.disconnect(this._settingsSignals.pop());
         }
     },
 
-    _setCloseButton: function() {
+  _setCloseButton: function() {
 		this._closeButton = this._settings.get_enum(CLOSE_BUTTON) + 1;
 	},
 
@@ -67,42 +69,30 @@ const Init = new Lang.Class({
 		// I'll go with a closure, not sure how to do it otherwise
 		let init = this;
 
-		// override WindowClone's _activate
-		WindowPreview.prototype._activate = function(action, actor) {
+		// my handling logic
+		const onClicked = function(action, actor) {
 			this._selected = true;
 			if (action.get_button() == init._closeButton) {
 				this.metaWindow.delete(global.get_current_time());
 			} else {
-				init._oldActivate.apply(this, [action, actor]);
+				init._oldActivate.apply(this);
 			}
 		};
+
+		// override _addWindowClone to add my event handler
+		Workspace.Workspace.prototype._addWindowClone = function(metaWindow) {
+			let clone = init._oldAddWindowClone(metaWindow);
+			clone.get_actions()[0].connect('clicked', onClicked.bind(clone));
+		}
+
+		// override WindowClone's _activate
+		WindowPreview.prototype._activate = () => {};
 
 		// override Workspace's _doRemoveWindow in order to put into it the
 		// parameteriseable rearrangement delay. Rather than copy the code from
 		// workspace.js, we reuse it but remove the scheduled rearrangement task
 		// (as its 750ms delay is hard-coded...)
-		Workspace.Workspace.prototype._doRemoveWindow = function(metaWin) {
-			init._oldDoRemoveWindow.apply(this, [metaWin]);
-
-			// the rest is more or less copied from the tail of _doRemoveWindow's
-			// original code
-
-			// remove old handler
-			if (this._repositionWindowsId > 0) {
-				Mainloop.source_remove(this._repositionWindowsId);
-				this._repositionWindowsId = 0;
-			}
-
-			// setup new handler
-			let [x, y, mask] = global.get_pointer();
-			this._cursorX = x;
-			this._cursorY = y;
-
-			// this is the bit that changes
-			//always more than 0ms
-			this._repositionWindowsId = Mainloop.timeout_add(Math.max(init._rearrangeDelay,1),
-								Lang.bind(this, this._delayedWindowRepositioning));
-		};
+		Workspace.WINDOW_REPOSITIONING_DELAY = Math.max(init._rearrangeDelay,1);
 
 		this._connectSettings();
 	},
@@ -110,6 +100,8 @@ const Init = new Lang.Class({
 	disable: function() {
 		WindowPreview.prototype._activate = this._oldActivate;
 		Workspace.Workspace.prototype._doRemoveWindow = this._oldDoRemoveWindow;
+		Workspace.WINDOW_REPOSITIONING_DELAY = this._oldDelay;
+		Workspace.Workspace.prototype._addWindowClone = this._oldAddWindowClone;
 		this._disconnectSettings();
 	}
 });
