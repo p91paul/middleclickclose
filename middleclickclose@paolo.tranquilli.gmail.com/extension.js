@@ -24,7 +24,6 @@ const REARRANGE_DELAY = 'rearrange-delay';
 const Lang = imports.lang;
 const St = imports.gi.St;
 const Main = imports.ui.main;
-const Tweener = imports.ui.tweener;
 const Workspace = imports.ui.workspace
 const Mainloop = imports.mainloop;
 const ExtensionUtils = imports.misc.extensionUtils;
@@ -34,7 +33,7 @@ const Lib = Me.imports.lib;
 
 const Init = new Lang.Class({
 	Name: 'MiddleClick.Init',
-	
+
 	_init: function () {
 		this._oldOnClicked = Workspace.WindowClone.prototype._onClicked;
 		this._oldDoRemoveWindow = Workspace.Workspace.prototype._doRemoveWindow;
@@ -42,23 +41,23 @@ const Init = new Lang.Class({
 		this._setCloseButton();
 		this._setRearrangeDelay();
 	},
-	
+
     _connectSettings: function() {
         this._settingsSignals = [];
         this._settingsSignals.push(this._settings.connect('changed::'+CLOSE_BUTTON, Lang.bind(this, this._setCloseButton)));
         this._settingsSignals.push(this._settings.connect('changed::'+REARRANGE_DELAY, Lang.bind(this, this._setRearrangeDelay)));
 	},
-	
+
     _disconnectSettings: function() {
         while(this._settingsSignals.length > 0) {
 			this._settings.disconnect(this._settingsSignals.pop());
         }
     },
-    
+
     _setCloseButton: function() {
 		this._closeButton = this._settings.get_enum(CLOSE_BUTTON) + 1;
 	},
-	
+
 	_setRearrangeDelay: function() {
 		this._rearrangeDelay = this._settings.get_int(REARRANGE_DELAY);
 	},
@@ -66,7 +65,7 @@ const Init = new Lang.Class({
 	enable: function() {
 		// I'll go with a closure, not sure how to do it otherwise
 		let init = this;
-		
+
 		// override WindowClone's _onClicked
 		Workspace.WindowClone.prototype._onClicked = function(action, actor) {
 			this._selected = true;
@@ -103,7 +102,7 @@ const Init = new Lang.Class({
 			this._repositionWindowsId = Mainloop.timeout_add(Math.max(init._rearrangeDelay,1),
 								Lang.bind(this, this._delayedWindowRepositioning));
 		};
-		
+
 		this._connectSettings();
 	},
 
