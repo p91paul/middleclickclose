@@ -82,7 +82,11 @@ const Init = new Lang.Class({
 		// override _addWindowClone to add my event handler
 		Workspace.Workspace.prototype._addWindowClone = function(metaWindow) {
 			let clone = init._oldAddWindowClone(metaWindow);
-			clone.get_actions()[0].connect('clicked', onClicked.bind(clone));
+			try {
+				clone.get_actions()[0].connect('clicked', onClicked.bind(clone));
+			} catch (e) {
+				global.log(e);
+			}
 			return clone;
 		}
 
