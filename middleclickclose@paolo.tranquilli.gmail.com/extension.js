@@ -36,6 +36,7 @@ const Init = new Lang.Class({
 	Name: 'MiddleClick.Init',
 
 	_init: function () {
+	    this._oldActivate = WindowPreview.prototype._activate;
 		this._oldAddWindowClone = Workspace.Workspace.prototype._addWindowClone;
 		this._settings = Lib.getSettings(Me);
 		this._oldDelay = Workspace.WINDOW_REPOSITIONING_DELAY;
@@ -84,6 +85,9 @@ const Init = new Lang.Class({
 			clone.get_actions()[0].connect('clicked', onClicked.bind(clone));
 			return clone;
 		}
+
+		// override WindowClone's _activate
+	    WindowPreview.prototype._activate = () => {};
 
 		// override Workspace's 750ms hardcoded WINDOW_REPOSITIONING_DELAY
 		Workspace.WINDOW_REPOSITIONING_DELAY = Math.max(init._rearrangeDelay,1);
