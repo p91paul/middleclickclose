@@ -36,6 +36,8 @@ const Init = new Lang.Class({
 	Name: 'MiddleClick.Init',
 
 	_init: function () {
+		this._oldActivate = WindowPreview.prototype._activate;
+		this._oldDoRemoveWindow = Workspace.Workspace.prototype._doRemoveWindow;
 		this._oldAddWindowClone = Workspace.Workspace.prototype._addWindowClone;
 		this._settings = Lib.getSettings(Me);
 		this._oldDelay = Workspace.WINDOW_REPOSITIONING_DELAY;
@@ -73,25 +75,32 @@ const Init = new Lang.Class({
 			if (action.get_button() == init._closeButton) {
 				this.metaWindow.delete(global.get_current_time());
 			} else {
-				init._activate.apply(this);
+				init._oldActivate.apply(this);
 			}
 		};
 
 		// override _addWindowClone to add my event handler
 		Workspace.Workspace.prototype._addWindowClone = function(metaWindow) {
 			let clone = init._oldAddWindowClone.apply(this, [metaWindow]);
-			clone.get_actions()[0].disconnect('any_signal::clicked');
 			clone.get_actions()[0].connect('clicked', onClicked.bind(clone));
 			return clone;
 		}
 
-		// override Workspace's 750ms hardcoded WINDOW_REPOSITIONING_DELAY
+		// override WindowClone's _activate
+		WindowPreview.prototype._activate = () => {};
+
+		// override Workspace's _doRemoveWindow in order to put into it the
+		// parameteriseable rearrangement delay. Rather than copy the code from
+		// workspace.js, we reuse it but remove the scheduled rearrangement task
+		// (as its 750ms delay is hard-coded...)
 		Workspace.WINDOW_REPOSITIONING_DELAY = Math.max(init._rearrangeDelay,1);
 
 		this._connectSettings();
 	},
 
 	disable: function() {
+		WindowPreview.prototype._activate = this._oldActivate;
+		Workspace.Workspace.prototype._doRemoveWindow = this._oldDoRemoveWindow;
 		Workspace.WINDOW_REPOSITIONING_DELAY = this._oldDelay;
 		Workspace.Workspace.prototype._addWindowClone = this._oldAddWindowClone;
 		this._disconnectSettings();
