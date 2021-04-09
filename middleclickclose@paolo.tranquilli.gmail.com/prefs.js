@@ -57,16 +57,21 @@ function init() {
 
 function buildPrefsWidget() {
     let frame = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL,
-                             border_width: 10});
+                             'margin-top': 10,
+                             'margin-end': 10,
+                             'margin-bottom': 10,
+                             'margin-start': 10});
     let vbox = new Gtk.Box({orientation: Gtk.Orientation.VERTICAL,
-                            margin: 20, margin_top: 10 });
+                             'margin-top': 10,
+                             'margin-end': 20,
+                             'margin-bottom': 20,
+                             'margin-start': 20});
     for (setting in settings) {
         hbox = buildHbox(settings, setting);
-        vbox.add(hbox);
+        vbox.append(hbox);
     }
 
-    frame.add(vbox);
-    frame.show_all();
+    frame.append(vbox);
 
     return frame;
 }
@@ -92,7 +97,7 @@ function buildHbox(settings, setting) {
 function createEnumSetting(settings, setting) {
 
     let hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL,
-                            margin_top: 5});
+                            'margin-top': 5});
 
     let setting_label = new Gtk.Label({label: settings[setting].label,
                                        xalign: 0 });
@@ -100,7 +105,7 @@ function createEnumSetting(settings, setting) {
     let model = new Gtk.ListStore();
     model.set_column_types([GObject.TYPE_INT, GObject.TYPE_STRING]);
     let setting_enum = new Gtk.ComboBox({model: model});
-    setting_enum.get_style_context().add_class(Gtk.STYLE_CLASS_RAISED);
+    setting_enum.get_style_context().add_class('raised');
     let renderer = new Gtk.CellRendererText();
     setting_enum.pack_start(renderer, true);
     setting_enum.add_attribute(renderer, 'text', 1);
@@ -129,8 +134,8 @@ function createEnumSetting(settings, setting) {
         setting_enum.set_tooltip_text(settings[setting].help)
     }
 
-    hbox.pack_start(setting_label, true, true, 0);
-    hbox.add(setting_enum);
+    //hbox.pack_start(setting_label, true, true, 0);
+    hbox.append(setting_enum);
 
     return hbox;
 
@@ -139,7 +144,7 @@ function createEnumSetting(settings, setting) {
 function createStringSetting(settings, setting) {
 
     let hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL,
-                            margin_top: 5});
+                            'margin-top': 5});
 
     let setting_label = new Gtk.Label({label: settings[setting].label,
                                        xalign: 0 });
@@ -159,8 +164,8 @@ function createStringSetting(settings, setting) {
         setting_string.set_tooltip_text(settings[setting].help)
     }
 
-    hbox.pack_start(setting_label, true, true, 0);
-    hbox.add(setting_string);
+    //hbox.pack_start(setting_label, true, true, 0);
+    hbox.append(setting_string);
 
     return hbox;
 }
@@ -168,7 +173,7 @@ function createStringSetting(settings, setting) {
 function createIntSetting(settings, setting) {
 
     let hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL,
-                            margin_top: 5});
+                            'margin-top': 5});
 
     let setting_label = new Gtk.Label({label: settings[setting].label,
                                        xalign: 0 });
@@ -187,8 +192,8 @@ function createIntSetting(settings, setting) {
         setting_int.set_tooltip_text(settings[setting].help)
     }
 
-    hbox.pack_start(setting_label, true, true, 0);
-    hbox.add(setting_int);
+    //hbox.pack_start(setting_label, true, true, 0);
+    hbox.append(setting_int);
 
     return hbox;
 }
@@ -196,7 +201,7 @@ function createIntSetting(settings, setting) {
 function createBoolSetting(settings, setting) {
 
     let hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL,
-                            margin_top: 5});
+                            'margin-top': 5});
 
     let setting_label = new Gtk.Label({label: settings[setting].label,
                                        xalign: 0 });
@@ -211,8 +216,8 @@ function createBoolSetting(settings, setting) {
         setting_switch.set_tooltip_text(settings[setting].help)
     }
 
-    hbox.pack_start(setting_label, true, true, 0);
-    hbox.add(setting_switch);
+    //hbox.pack_start(setting_label, true, true, 0);
+    hbox.append(setting_switch);
 
     return hbox;
 }
@@ -241,9 +246,8 @@ function createRangeSetting(settings, setting) {
         setting_range.set_tooltip_text(settings[setting].help)
     }
 
-    hbox.pack_start(setting_label, true, true, 0);
-    hbox.add(setting_range);
+    //hbox.pack_start(setting_label, true, true, 0);
+    hbox.append(setting_range);
 
     return hbox;
 }
-

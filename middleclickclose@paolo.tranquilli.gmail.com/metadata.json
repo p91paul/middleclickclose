@@ -1,6 +1,6 @@
 {
 	"shell-version": [
-		"3.38"
+		"40"
 	],
 	"settings-schema": "org.gnome.shell.extensions.middleclickclose",
 	"uuid": "middleclickclose@paolo.tranquilli.gmail.com",
