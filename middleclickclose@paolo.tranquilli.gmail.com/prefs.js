@@ -97,7 +97,8 @@ function buildHbox(settings, setting) {
 function createEnumSetting(settings, setting) {
 
     let hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL,
-                            'margin-top': 5});
+                            'margin-top': 5,
+                        		spacing: 10});
 
     let setting_label = new Gtk.Label({label: settings[setting].label,
                                        xalign: 0 });
@@ -134,7 +135,7 @@ function createEnumSetting(settings, setting) {
         setting_enum.set_tooltip_text(settings[setting].help)
     }
 
-    //hbox.pack_start(setting_label, true, true, 0);
+    hbox.append(setting_label);
     hbox.append(setting_enum);
 
     return hbox;
@@ -144,7 +145,8 @@ function createEnumSetting(settings, setting) {
 function createStringSetting(settings, setting) {
 
     let hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL,
-                            'margin-top': 5});
+                            'margin-top': 5,
+                        		spacing: 10});
 
     let setting_label = new Gtk.Label({label: settings[setting].label,
                                        xalign: 0 });
@@ -164,7 +166,7 @@ function createStringSetting(settings, setting) {
         setting_string.set_tooltip_text(settings[setting].help)
     }
 
-    //hbox.pack_start(setting_label, true, true, 0);
+    hbox.append(setting_label);
     hbox.append(setting_string);
 
     return hbox;
@@ -173,7 +175,8 @@ function createStringSetting(settings, setting) {
 function createIntSetting(settings, setting) {
 
     let hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL,
-                            'margin-top': 5});
+                            'margin-top': 5,
+                            spacing: 10});
 
     let setting_label = new Gtk.Label({label: settings[setting].label,
                                        xalign: 0 });
@@ -192,7 +195,7 @@ function createIntSetting(settings, setting) {
         setting_int.set_tooltip_text(settings[setting].help)
     }
 
-    //hbox.pack_start(setting_label, true, true, 0);
+    hbox.append(setting_label);
     hbox.append(setting_int);
 
     return hbox;
@@ -201,7 +204,8 @@ function createIntSetting(settings, setting) {
 function createBoolSetting(settings, setting) {
 
     let hbox = new Gtk.Box({orientation: Gtk.Orientation.HORIZONTAL,
-                            'margin-top': 5});
+                            'margin-top': 5,
+                            spacing: 10});
 
     let setting_label = new Gtk.Label({label: settings[setting].label,
                                        xalign: 0 });
@@ -216,7 +220,7 @@ function createBoolSetting(settings, setting) {
         setting_switch.set_tooltip_text(settings[setting].help)
     }
 
-    //hbox.pack_start(setting_label, true, true, 0);
+    hbox.append(setting_label);
     hbox.append(setting_switch);
 
     return hbox;
@@ -224,7 +228,8 @@ function createBoolSetting(settings, setting) {
 
 function createRangeSetting(settings, setting) {
 
-    let hbox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL });
+    let hbox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
+                             spacing: 10 });
 
     let setting_label = new Gtk.Label({ label: settings[setting].label,
                                         xalign: 0 });
@@ -246,7 +251,7 @@ function createRangeSetting(settings, setting) {
         setting_range.set_tooltip_text(settings[setting].help)
     }
 
-    //hbox.pack_start(setting_label, true, true, 0);
+    hbox.append(setting_label);
     hbox.append(setting_range);
 
     return hbox;
