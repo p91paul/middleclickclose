@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Onno Giesmann <nutzer3105@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-12-30 07:06+0100\n"
+"PO-Revision-Date: 2019-06-17 20:44+0200\n"
+"Language-Team: German <--->\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Gtranslator 3.32.1\n"
+"Last-Translator: Onno Giesmann <nutzer3105@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: de\n"
+
+#: ../../../prefs.js:33
+msgid "Mouse button to close"
+msgstr "Maustaste zum Schließen"
+
+#: ../../../prefs.js:34
+msgid "Which mouse button triggers closing in overview."
+msgstr "Gibt an, welche Maustaste das Schließen in der Übersicht auslöst."
+
+#: ../../../prefs.js:36
+msgid "Left"
+msgstr "Linke"
+
+#: ../../../prefs.js:37
+msgid "Middle"
+msgstr "Mittlere"
+
+#: ../../../prefs.js:38
+msgid "Right"
+msgstr "Rechte"
+
+#: ../../../prefs.js:39
+msgid "Button 4"
+msgstr "Taste 4"
+
+#: ../../../prefs.js:40
+msgid "Button 5"
+msgstr "Taste 5"
+
+#: ../../../prefs.js:41
+msgid "Button 6"
+msgstr "Taste 6"
+
+#: ../../../prefs.js:42
+msgid "Button 7"
+msgstr "Taste 7"
+
+#: ../../../prefs.js:43
+msgid "Button 8"
+msgstr "Taste 8"
+
+#: ../../../prefs.js:44
+msgid "Button 9"
+msgstr "Taste 9"
+
+#: ../../../prefs.js:50
+msgid "Rearrange delay"
+msgstr "Verzögerung bis zur Neuanordnung"
+
+#: ../../../prefs.js:51
+msgid ""
+"How much time must pass with the pointer not moving for windows in overview "
+"to rearrange after one was closed."
+msgstr ""
+"Gibt die Zeit an, die bei stillstehender Maus vergehen muss, bevor sich die "
+"Fenster in der Übersicht neu anordnen, nachdem ein Fenster geschlossen wurde."
