@@ -20,13 +20,12 @@ const Gettext = imports.gettext.domain('gnome-shell-extensions-middleclickclose'
 const _ = Gettext.gettext;
 
 const Me = imports.misc.extensionUtils.getCurrentExtension();
-const Lib = Me.imports.lib;
 
 let gsettings;
 let settings;
 function init() {
-    Lib.initTranslations(Me);
-    gsettings = Lib.getSettings(Me);
+    ExtensionUtils.initTranslations();
+    gsettings = ExtensionUtils.getSettings();
     settings = {
         close_button: {
             type: "e",
