@@ -67,7 +67,7 @@ var Init = class Init {
 		const onClicked = function(action, actor) {
 			this._selected = true;
 			if (action.get_button() == init._closeButton) {
-				this.metaWindow.delete(global.get_current_time());
+				this._deleteAll();
 			} else {
 				init._oldActivate.apply(this);
 			}
