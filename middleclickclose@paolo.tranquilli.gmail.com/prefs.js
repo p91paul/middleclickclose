@@ -20,6 +20,7 @@ const Gettext = imports.gettext.domain('gnome-shell-extensions-middleclickclose'
 const _ = Gettext.gettext;
 
 const Me = imports.misc.extensionUtils.getCurrentExtension();
+const ExtensionUtils = imports.misc.extensionUtils;
 
 let gsettings;
 let settings;
