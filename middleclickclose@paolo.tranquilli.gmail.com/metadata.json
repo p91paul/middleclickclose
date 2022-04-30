@@ -1,7 +1,5 @@
 {
 	"shell-version": [
-		"40",
-		"41",
 		"42"
 	],
 	"settings-schema": "org.gnome.shell.extensions.middleclickclose",
