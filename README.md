@@ -18,6 +18,6 @@ Otherwise you may
     glib-compile-schemas $HOME/.local/share/gnome-shell/extensions/middleclickclose@paolo.tranquilli.gmail.com/schemas
 ```
 
-* reload gnome-shell (Alt-F2, r, Enter)
-* activate it through Gnome Tweak Tool.
+* reload gnome-shell (Alt-F2, r, Enter) -> on Wayland you need to log out and log in again, there is no in-place reload
+* activate it through the Extensions gnome application.
 ![](tweak-tool-screenshot.png)
