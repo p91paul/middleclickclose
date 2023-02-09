@@ -32,19 +32,19 @@ const Me = ExtensionUtils.getCurrentExtension();
 
 var Init = class Init {
 
-  _connectSettings() {
-    this._settingsSignals = [];
-    this._settingsSignals.push(this._settings.connect('changed::'+CLOSE_BUTTON, this._setCloseButton.bind(this)));
-    this._settingsSignals.push(this._settings.connect('changed::'+REARRANGE_DELAY, this._setRearrangeDelay.bind(this)));
+	_connectSettings() {
+		this._settingsSignals = [];
+		this._settingsSignals.push(this._settings.connect('changed::'+CLOSE_BUTTON, this._setCloseButton.bind(this)));
+		this._settingsSignals.push(this._settings.connect('changed::'+REARRANGE_DELAY, this._setRearrangeDelay.bind(this)));
 	}
 
-  _disconnectSettings() {
-    while(this._settingsSignals.length > 0) {
+	_disconnectSettings() {
+		while(this._settingsSignals.length > 0) {
 			this._settings.disconnect(this._settingsSignals.pop());
-    }
-  }
+		}
+	}
 
-  _setCloseButton() {
+	_setCloseButton() {
 		this._closeButton = this._settings.get_enum(CLOSE_BUTTON) + 1;
 	}
 
