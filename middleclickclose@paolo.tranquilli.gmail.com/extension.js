@@ -27,6 +27,7 @@ const Workspace = imports.ui.workspace
 const WindowPreview = imports.ui.windowPreview.WindowPreview
 const Mainloop = imports.mainloop;
 const ExtensionUtils = imports.misc.extensionUtils;
+const GObject = imports.gi.GObject;
 
 const Me = ExtensionUtils.getCurrentExtension();
 
@@ -76,12 +77,19 @@ var Init = class Init {
 		// override _addWindowClone to add my event handler
 		Workspace.Workspace.prototype._addWindowClone = function(metaWindow) {
 			let clone = init._oldAddWindowClone.apply(this, [metaWindow]);
+
+			// remove default 'clicked' signal handler
+			let id = GObject.signal_handler_find(
+				clone.get_actions()[0],
+				{signalId: 'clicked'}
+			)
+			clone.get_actions()[0].disconnect(id);
+
+			// add custom 'clicked' signal handler
 			clone.get_actions()[0].connect('clicked', onClicked.bind(clone));
+
 			return clone;
 		}
-
-		// override WindowClone's _activate
-		WindowPreview.prototype._activate = () => {};
 
 		// override Workspace's _doRemoveWindow in order to put into it the
 		// parameteriseable rearrangement delay. Rather than copy the code from
