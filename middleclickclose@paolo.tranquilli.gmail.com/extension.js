@@ -54,7 +54,6 @@ var Init = class Init {
 	}
 
 	enable() {
-		this._oldActivate = WindowPreview.prototype._activate;
 		this._oldDoRemoveWindow = Workspace.Workspace.prototype._doRemoveWindow;
 		this._oldAddWindowClone = Workspace.Workspace.prototype._addWindowClone;
 		this._settings = ExtensionUtils.getSettings();
@@ -70,7 +69,7 @@ var Init = class Init {
 			if (action.get_button() == init._closeButton) {
 				this._deleteAll();
 			} else {
-				init._oldActivate.apply(this);
+				WindowPreview.prototype._activate.apply(this);
 			}
 		};
 
@@ -101,7 +100,6 @@ var Init = class Init {
 	}
 
 	disable() {
-		WindowPreview.prototype._activate = this._oldActivate;
 		Workspace.Workspace.prototype._doRemoveWindow = this._oldDoRemoveWindow;
 		Workspace.WINDOW_REPOSITIONING_DELAY = this._oldDelay;
 		Workspace.Workspace.prototype._addWindowClone = this._oldAddWindowClone;
