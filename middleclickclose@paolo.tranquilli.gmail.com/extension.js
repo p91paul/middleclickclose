@@ -27,24 +27,25 @@ const Workspace = imports.ui.workspace
 const WindowPreview = imports.ui.windowPreview.WindowPreview
 const Mainloop = imports.mainloop;
 const ExtensionUtils = imports.misc.extensionUtils;
+const GObject = imports.gi.GObject;
 
 const Me = ExtensionUtils.getCurrentExtension();
 
 var Init = class Init {
 
-  _connectSettings() {
-    this._settingsSignals = [];
-    this._settingsSignals.push(this._settings.connect('changed::'+CLOSE_BUTTON, this._setCloseButton.bind(this)));
-    this._settingsSignals.push(this._settings.connect('changed::'+REARRANGE_DELAY, this._setRearrangeDelay.bind(this)));
+	_connectSettings() {
+		this._settingsSignals = [];
+		this._settingsSignals.push(this._settings.connect('changed::'+CLOSE_BUTTON, this._setCloseButton.bind(this)));
+		this._settingsSignals.push(this._settings.connect('changed::'+REARRANGE_DELAY, this._setRearrangeDelay.bind(this)));
 	}
 
-  _disconnectSettings() {
-    while(this._settingsSignals.length > 0) {
+	_disconnectSettings() {
+		while(this._settingsSignals.length > 0) {
 			this._settings.disconnect(this._settingsSignals.pop());
-    }
-  }
+		}
+	}
 
-  _setCloseButton() {
+	_setCloseButton() {
 		this._closeButton = this._settings.get_enum(CLOSE_BUTTON) + 1;
 	}
 
@@ -53,8 +54,6 @@ var Init = class Init {
 	}
 
 	enable() {
-		this._oldActivate = WindowPreview.prototype._activate;
-		this._oldDoRemoveWindow = Workspace.Workspace.prototype._doRemoveWindow;
 		this._oldAddWindowClone = Workspace.Workspace.prototype._addWindowClone;
 		this._settings = ExtensionUtils.getSettings();
 		this._oldDelay = Workspace.WINDOW_REPOSITIONING_DELAY;
@@ -69,19 +68,26 @@ var Init = class Init {
 			if (action.get_button() == init._closeButton) {
 				this._deleteAll();
 			} else {
-				init._oldActivate.apply(this);
+				WindowPreview.prototype._activate.apply(this);
 			}
 		};
 
 		// override _addWindowClone to add my event handler
 		Workspace.Workspace.prototype._addWindowClone = function(metaWindow) {
 			let clone = init._oldAddWindowClone.apply(this, [metaWindow]);
+
+			// remove default 'clicked' signal handler
+			let id = GObject.signal_handler_find(
+				clone.get_actions()[0],
+				{signalId: 'clicked'}
+			)
+			clone.get_actions()[0].disconnect(id);
+
+			// add custom 'clicked' signal handler
 			clone.get_actions()[0].connect('clicked', onClicked.bind(clone));
+
 			return clone;
 		}
-
-		// override WindowClone's _activate
-		WindowPreview.prototype._activate = () => {};
 
 		// override Workspace's _doRemoveWindow in order to put into it the
 		// parameteriseable rearrangement delay. Rather than copy the code from
@@ -93,8 +99,6 @@ var Init = class Init {
 	}
 
 	disable() {
-		WindowPreview.prototype._activate = this._oldActivate;
-		Workspace.Workspace.prototype._doRemoveWindow = this._oldDoRemoveWindow;
 		Workspace.WINDOW_REPOSITIONING_DELAY = this._oldDelay;
 		Workspace.Workspace.prototype._addWindowClone = this._oldAddWindowClone;
 		this._disconnectSettings();
