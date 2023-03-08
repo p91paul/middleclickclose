@@ -54,7 +54,6 @@ var Init = class Init {
 	}
 
 	enable() {
-		this._oldDoRemoveWindow = Workspace.Workspace.prototype._doRemoveWindow;
 		this._oldAddWindowClone = Workspace.Workspace.prototype._addWindowClone;
 		this._settings = ExtensionUtils.getSettings();
 		this._oldDelay = Workspace.WINDOW_REPOSITIONING_DELAY;
@@ -100,7 +99,6 @@ var Init = class Init {
 	}
 
 	disable() {
-		Workspace.Workspace.prototype._doRemoveWindow = this._oldDoRemoveWindow;
 		Workspace.WINDOW_REPOSITIONING_DELAY = this._oldDelay;
 		Workspace.Workspace.prototype._addWindowClone = this._oldAddWindowClone;
 		this._disconnectSettings();
