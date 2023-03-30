@@ -1,8 +1,5 @@
 {
-	"shell-version": [
-		"42",
-		"43"
-	],
+	"shell-version": ["42","43","44"],
 	"settings-schema": "org.gnome.shell.extensions.middleclickclose",
 	"gettext-domain": "org.gnome.shell.extensions.middleclickclose",
 	"uuid": "middleclickclose@paolo.tranquilli.gmail.com",
