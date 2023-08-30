@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-30 18:29+0300\n"
+"PO-Revision-Date: 2017-04-21 10:06+0200\n"
+"Last-Translator: Jimmy Scionti <jimmy.scionti@gmail.com>\n"
+"Language-Team: Jimmy Scionti <jimmy.scionti@gmail.com>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/prefs.js:30
+msgid "Left"
+msgstr "Sinistro"
+
+#: src/prefs.js:31
+msgid "Middle"
+msgstr "Centrale"
+
+#: src/prefs.js:32
+msgid "Right"
+msgstr "Destro"
+
+#: src/prefs.js:33
+msgid "Button 4"
+msgstr "Pulsante 4"
+
+#: src/prefs.js:34
+msgid "Button 5"
+msgstr "Pulsante 5"
+
+#: src/prefs.js:35
+msgid "Button 6"
+msgstr "Pulsante 6"
+
+#: src/prefs.js:36
+msgid "Button 7"
+msgstr "Pulsante 7"
+
+#: src/prefs.js:37
+msgid "Button 8"
+msgstr "Pulsante 8"
+
+#: src/prefs.js:38
+msgid "Button 9"
+msgstr "Pulsante 9"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:17
+msgid "Mouse button to close"
+msgstr "Pulsante del mouse per chiudere la finestra"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:18
+msgid "Which mouse button triggers closing in overview."
+msgstr "Seleziona quale pulsante del mouse premere per chiudere una finestra."
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:23
+msgid "Rearrange delay"
+msgstr "Ritardo del riordinamento"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:24
+msgid ""
+"How much time must pass with the pointer not moving for windows in overview "
+"to rearrange after one was closed."
+msgstr ""
+"Seleziona il tempo di attesa tra la chiusura di una finestra e il "
+"riordinamento delle altre finestre nell'anteprima."

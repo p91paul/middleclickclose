@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schemalist gettext-domain="middleclickclose">
+<schemalist gettext-domain="org.gnome.shell.extensions.middleclickclose">
   <enum id='org.gnome.shell.extensions.middleclickclose.buttons'>
     <value value='0' nick='left'/>
     <value value='1' nick='middle'/>
@@ -11,15 +11,17 @@
     <value value='7' nick='button 8'/>
     <value value='8' nick='button 9'/>
   </enum>
-  <schema path="/org/gnome/shell/extensions/middleclickclose/" id="org.gnome.shell.extensions.middleclickclose">
+  <schema id="org.gnome.shell.extensions.middleclickclose" path="/org/gnome/shell/extensions/middleclickclose/">
     <key name="close-button" enum="org.gnome.shell.extensions.middleclickclose.buttons">
-        <default>'middle'</default>
-        <summary>Which mouse button is used to quick-close</summary>
+      <default>'middle'</default>
+      <summary>Mouse button to close</summary>
+      <description>Which mouse button triggers closing in overview.</description>
     </key>
     <key type="i" name="rearrange-delay">
       <default>750</default>
-      <summary>Rearrangement delay after close</summary>
-      <description>Time in milliseconds it take for the scaled windows to rearrange themselves after any type of close action.</description>
+      <range min="0" max="5000" />
+      <summary>Rearrange delay</summary>
+      <description>How much time must pass with the pointer not moving for windows in overview to rearrange after one was closed.</description>
     </key>
   </schema>
 </schemalist>
