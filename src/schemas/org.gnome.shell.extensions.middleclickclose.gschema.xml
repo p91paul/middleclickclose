@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="org.gnome.shell.extensions.middleclickclose">
   <enum id='org.gnome.shell.extensions.middleclickclose.buttons'>
-    <value value='0' nick='left'/>
-    <value value='1' nick='middle'/>
-    <value value='2' nick='right'/>
-    <value value='3' nick='button 4'/>
-    <value value='4' nick='button 5'/>
-    <value value='5' nick='button 6'/>
-    <value value='6' nick='button 7'/>
-    <value value='7' nick='button 8'/>
-    <value value='8' nick='button 9'/>
+    <value value='1' nick='left'/>
+    <value value='2' nick='middle'/>
+    <value value='3' nick='right'/>
+    <value value='4' nick='button 4'/>
+    <value value='5' nick='button 5'/>
+    <value value='6' nick='button 6'/>
+    <value value='7' nick='button 7'/>
+    <value value='8' nick='button 8'/>
+    <value value='9' nick='button 9'/>
   </enum>
   <schema id="org.gnome.shell.extensions.middleclickclose" path="/org/gnome/shell/extensions/middleclickclose/">
     <key name="close-button" enum="org.gnome.shell.extensions.middleclickclose.buttons">

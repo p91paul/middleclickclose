@@ -20,114 +20,83 @@
 import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 
-import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js'
-import { Workspace } from 'resource:///org/gnome/shell/ui/workspace.js'
+import { Extension, InjectionManager } from 'resource:///org/gnome/shell/extensions/extension.js';
+import { Workspace } from 'resource:///org/gnome/shell/ui/workspace.js';
+
+import { SettingsWatch } from './settingsWatch.js';
 
 export default class MiddleClickClose extends Extension {
-	enabled = false;
-	#patched = false;
-
 	#settings;
-	#close_button;
-	#rearrange_delay;
+	#injectionManager;
 
 	enable() {
-		this.enabled = true;
-		this.ensurePatched();
+		this.#settings = new SettingsWatch(this.getSettings(), {
+			close_button: { get: v => v.value, },
+			rearrange_delay: {},
+		});
+
+		this.#injectionManager = new InjectionManager();
+		this.#patchClickHandler();
+		this.#patchWindowRepositioningDelay();
 	}
 
 	disable() {
-		this.enabled = false;
-	}
+		this.#injectionManager.clear();
+		this.#injectionManager = null;
 
-	onCloneClicked(clone, action) {
-		if (this.enabled && action.get_button() == this.close_button) {
-			clone._deleteAll()
-			return;
-		}
-
-		clone._activate()
-	}
-
-	ensurePatched() {
-		// Already patched.
-		if (this.#patched)
-			return;
-
-		this.#patchClickHandler();
-		this.#patchWindowRepositioningDelay();
-
-		this.#patched = true;
+		this.#settings.clear();
+		this.#settings = null;
 	}
 
 	#patchClickHandler() {
 		// Patch _addWindowClone() to override the clicked signal handler for window clones (which
 		// is what gnome calls window previews).
-		const self = this;
-		const _addWindowClone = Workspace.prototype._addWindowClone;
-		Workspace.prototype._addWindowClone = function () {
-			let clone = _addWindowClone.apply(this, arguments);
+		const settings = this.#settings;
+		this.#injectionManager.overrideMethod(Workspace.prototype, '_addWindowClone',
+			original => function () {
+				let clone = original.apply(this, arguments);
 
-			// This relies on implementation details of both gnome and gobject. Mainly the order the
-			// clone's actions are defined and the order with which signal handlers are connected on
-			// the click action. Just pray this never breaks... Or that gnome moves the click
-			// handler into a named function. That'd be nice too :)
-			let [clickAction] = clone.get_actions();
-			let id = GObject.signal_handler_find(clickAction, { signalId: 'clicked' });
-			clickAction.disconnect(id);
-			clickAction.connect('clicked', action => self.onCloneClicked(clone, action));
+				// This relies on implementation details of both gnome and gobject. Mainly the order
+				// the clone's actions are defined and the order with which signal handlers are
+				// connected on the click action. Just pray this never breaks... Or that gnome moves
+				// the click handler into a named function. That'd be nice too :)
+				let [clickAction] = clone.get_actions();
+				let id = GObject.signal_handler_find(clickAction, { signalId: 'clicked' });
+				clickAction.disconnect(id);
+				clickAction.connect('clicked', action => {
+					if (action.get_button() == settings.close_button) {
+						clone._deleteAll();
+					} else {
+						clone._activate();
+					}
+				});
 
-			return clone;
-		}
+				return clone;
+			}
+		);
 	}
 
 	#patchWindowRepositioningDelay() {
 		// It'd be nice to just change the WINDOW_REPOSITIONING_DELAY in workspace.js, but
 		// apparently that is impossible with the switch to ESM. Instead, we'll monkey-patch
 		// _doRemoveWindow() and change the timeout after the fact.
-		const self = this;
-		const _doRemoveWindow = Workspace.prototype._doRemoveWindow;
-		Workspace.prototype._doRemoveWindow = function () {
-			const ret = _doRemoveWindow.apply(this, arguments);
+		const settings = this.#settings;
+		this.#injectionManager.overrideMethod(Workspace.prototype, '_doRemoveWindow',
+			original => function () {
+				const ret = original.apply(this, arguments);
 
-			// Adjust the freeze delay.
-			if (this._layoutFrozenId > 0
-				&& this._layoutFrozenId != this._quickCloseInOverview_lastLayoutFrozenId
-			) {
-				const source = GLib.MainContext.default().find_source_by_id(this._layoutFrozenId);
-				source.set_ready_time(source.get_time() + self.rearrange_delay * 1000);
-			}
+				// Adjust the freeze delay.
+				if (this._layoutFrozenId > 0
+					&& this._layoutFrozenId != this._quickCloseInOverview_lastLayoutFrozenId
+				) {
+					const source = GLib.MainContext.default().find_source_by_id(this._layoutFrozenId);
+					source.set_ready_time(source.get_time() + settings.rearrange_delay * 1000);
+				}
 
-			// Need to keep the last id to avoid adjusting the layout freeze delay more than once.
-			this._quickCloseInOverview_lastLayoutFrozenId = this._layoutFrozenId;
+				// Need to keep the last id to avoid adjusting the layout freeze delay more than once.
+				this._quickCloseInOverview_lastLayoutFrozenId = this._layoutFrozenId;
 
-			return ret;
-		};
-	}
-
-	get settings() {
-		this.#settings ||= this.getSettings();
-		return this.#settings;
-	}
-
-	get close_button() {
-		if (this.#close_button === undefined) {
-			const update = () => this.#close_button = this.settings.get_enum('close-button') + 1;
-			this.settings.connect('changed::close-button', update);
-			update();
-		}
-
-		return this.#close_button;
-	}
-
-
-	get rearrange_delay() {
-		if (this.#rearrange_delay === undefined) {
-			const update = () => this.#rearrange_delay = this.settings.get_int('rearrange-delay');
-			this.settings.connect('changed::rearrange-delay', update);
-			update();
-		}
-
-		return this.#rearrange_delay;
+				return ret;
+			})
 	}
 };

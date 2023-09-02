@@ -1,11 +1,12 @@
 .PHONY: clean all install po pot pack
 
 POT_SOURCE_FILES = $(wildcard src/schemas/*.gschema.xml src/*.js)
+EXTRA_SOURCE_FILES = settingsWatch.js
 
 all: pack
 
 pack:
-	gnome-extensions pack --force src/
+	gnome-extensions pack --force src/ $(addprefix --extra-source=, $(EXTRA_SOURCE_FILES))
 
 install: pack
 	gnome-extensions install --force middleclickclose@paolo.tranquilli.gmail.com.shell-extension.zip

@@ -48,20 +48,20 @@ export default class MiddleClickClosePreferences extends ExtensionPreferences {
     }
 
     buildPreference(key, opts) {
-        opts ||= {}
+        opts ??= {}
 
         const settings = this.getSettings();
         const setting = settings.create_action(key);
         const schema = settings.settings_schema.get_key(key);
 
-        opts.title ||= schema.get_summary() || schema.get_name();
-        opts.subtitle ||= schema.get_description();
+        opts.title ??= schema.get_summary() || schema.get_name();
+        opts.subtitle ??= schema.get_description();
 
         const ty = schema.get_value_type().dup_string();
         const [range_ty, range] = schema.get_range().recursiveUnpack();
 
         if (range_ty == "enum") {
-            opts.nicks ||= {};
+            opts.nicks ??= {};
             let row = new Adw.ComboRow({
                 title: opts.title,
                 subtitle: opts.subtitle,
@@ -75,8 +75,8 @@ export default class MiddleClickClosePreferences extends ExtensionPreferences {
 
             return row;
         } else if (range_ty == "range") {
-            opts.lower ||= range[0]
-            opts.upper ||= range[1]
+            opts.lower ??= range[0]
+            opts.upper ??= range[1]
         }
 
         if (["i"].includes(ty)) {
