@@ -81,20 +81,21 @@ export default class MiddleClickClose extends Extension {
 		// apparently that is impossible with the switch to ESM. Instead, we'll monkey-patch
 		// _doRemoveWindow() and change the timeout after the fact.
 		const settings = this.#settings;
+		const lastLayoutFrozenIds = new WeakMap();
 		this.#injectionManager.overrideMethod(Workspace.prototype, '_doRemoveWindow',
 			original => function () {
 				const ret = original.apply(this, arguments);
 
 				// Adjust the freeze delay.
 				if (this._layoutFrozenId > 0
-					&& this._layoutFrozenId != this._quickCloseInOverview_lastLayoutFrozenId
+					&& this._layoutFrozenId != lastLayoutFrozenIds.get(this)
 				) {
 					const source = GLib.MainContext.default().find_source_by_id(this._layoutFrozenId);
 					source.set_ready_time(source.get_time() + settings.rearrange_delay * 1000);
 				}
 
 				// Need to keep the last id to avoid adjusting the layout freeze delay more than once.
-				this._quickCloseInOverview_lastLayoutFrozenId = this._layoutFrozenId;
+				lastLayoutFrozenIds.set(this, this._layoutFrozenId);
 
 				return ret;
 			})
