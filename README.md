@@ -22,8 +22,8 @@ Otherwise you may
 
 ## Translations
 
-If you're interested in contributing a translation, clone the project and run `make pot` to generate
-a translation template file under `src/po/template.pot`. Then use whatever your favourite po-editing
-software is to create a `*.po` file and place it under `src/po`.
+If you're interested in contributing a translation, import the translation template file under
+`src/po/template.pot` to your favourite po-editing software and create a `*.po` file under `src/po`.
 
-To update all existing translations after changing the code, make sure to run `make po`.
+To update all existing translations after changing the code, run `make po`. To regenerate only the
+`template.pot` file, run `make pot`
