@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="org.gnome.shell.extensions.middleclickclose">
+  <enum id='org.gnome.shell.extensions.middleclickclose.buttons'>
+    <value value='1' nick='left'/>
+    <value value='2' nick='middle'/>
+    <value value='3' nick='right'/>
+    <value value='4' nick='button 4'/>
+    <value value='5' nick='button 5'/>
+    <value value='6' nick='button 6'/>
+    <value value='7' nick='button 7'/>
+    <value value='8' nick='button 8'/>
+    <value value='9' nick='button 9'/>
+  </enum>
+  <schema id="org.gnome.shell.extensions.middleclickclose" path="/org/gnome/shell/extensions/middleclickclose/">
+    <key name="close-button" enum="org.gnome.shell.extensions.middleclickclose.buttons">
+      <default>'middle'</default>
+      <summary>Mouse button to close</summary>
+      <description>Which mouse button triggers closing in overview.</description>
+    </key>
+    <key type="i" name="rearrange-delay">
+      <default>750</default>
+      <range min="0" max="5000" />
+      <summary>Rearrange delay</summary>
+      <description>How much time must pass with the pointer not moving for windows in overview to rearrange after one was closed.</description>
+    </key>
+  </schema>
+</schemalist>

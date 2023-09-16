@@ -7,66 +7,66 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-30 07:06+0100\n"
+"POT-Creation-Date: 2023-08-30 18:29+0300\n"
 "PO-Revision-Date: 2019-06-17 20:44+0200\n"
+"Last-Translator: Onno Giesmann <nutzer3105@gmail.com>\n"
 "Language-Team: German <--->\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Gtranslator 3.32.1\n"
-"Last-Translator: Onno Giesmann <nutzer3105@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"Language: de\n"
 
-#: ../../../prefs.js:33
-msgid "Mouse button to close"
-msgstr "Maustaste zum Schließen"
-
-#: ../../../prefs.js:34
-msgid "Which mouse button triggers closing in overview."
-msgstr "Gibt an, welche Maustaste das Schließen in der Übersicht auslöst."
-
-#: ../../../prefs.js:36
+#: src/prefs.js:30
 msgid "Left"
 msgstr "Linke"
 
-#: ../../../prefs.js:37
+#: src/prefs.js:31
 msgid "Middle"
 msgstr "Mittlere"
 
-#: ../../../prefs.js:38
+#: src/prefs.js:32
 msgid "Right"
 msgstr "Rechte"
 
-#: ../../../prefs.js:39
+#: src/prefs.js:33
 msgid "Button 4"
 msgstr "Taste 4"
 
-#: ../../../prefs.js:40
+#: src/prefs.js:34
 msgid "Button 5"
 msgstr "Taste 5"
 
-#: ../../../prefs.js:41
+#: src/prefs.js:35
 msgid "Button 6"
 msgstr "Taste 6"
 
-#: ../../../prefs.js:42
+#: src/prefs.js:36
 msgid "Button 7"
 msgstr "Taste 7"
 
-#: ../../../prefs.js:43
+#: src/prefs.js:37
 msgid "Button 8"
 msgstr "Taste 8"
 
-#: ../../../prefs.js:44
+#: src/prefs.js:38
 msgid "Button 9"
 msgstr "Taste 9"
 
-#: ../../../prefs.js:50
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:17
+msgid "Mouse button to close"
+msgstr "Maustaste zum Schließen"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:18
+msgid "Which mouse button triggers closing in overview."
+msgstr "Gibt an, welche Maustaste das Schließen in der Übersicht auslöst."
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:23
 msgid "Rearrange delay"
 msgstr "Verzögerung bis zur Neuanordnung"
 
-#: ../../../prefs.js:51
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:24
 msgid ""
 "How much time must pass with the pointer not moving for windows in overview "
 "to rearrange after one was closed."
