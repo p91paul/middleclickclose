@@ -20,7 +20,8 @@
 import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 
-import { Extension, InjectionManager } from 'resource:///org/gnome/shell/extensions/extension.js';
+import { Extension, InjectionManager }
+	from 'resource:///org/gnome/shell/extensions/extension.js';
 import { Workspace } from 'resource:///org/gnome/shell/ui/workspace.js';
 
 import { SettingsWatch } from './settingsWatch.js';
@@ -90,11 +91,12 @@ export default class MiddleClickClose extends Extension {
 				if (this._layoutFrozenId > 0
 					&& this._layoutFrozenId != lastLayoutFrozenIds.get(this)
 				) {
-					const source = GLib.MainContext.default().find_source_by_id(this._layoutFrozenId);
-					source.set_ready_time(source.get_time() + settings.rearrange_delay * 1000);
+					const src = GLib.MainContext.default().find_source_by_id(this._layoutFrozenId);
+					src.set_ready_time(src.get_time() + settings.rearrange_delay * 1000);
 				}
 
-				// Need to keep the last id to avoid adjusting the layout freeze delay more than once.
+				// Need to keep the last id to avoid adjusting the layout freeze delay more than
+				// once.
 				lastLayoutFrozenIds.set(this, this._layoutFrozenId);
 
 				return ret;
