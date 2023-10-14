@@ -1,0 +1,72 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Tomás Marques <tomasm576@gmail.com>, 2023
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-11 23:56+0100\n"
+"PO-Revision-Date: 2023-10-11 23:56+0100\n"
+"Last-Translator: Tomás Marques <tomasm576@gmail.com>\n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/prefs.js:30
+msgid "Left"
+msgstr "Esquerda"
+
+#: src/prefs.js:31
+msgid "Middle"
+msgstr "Meio"
+
+#: src/prefs.js:32
+msgid "Right"
+msgstr "Direita"
+
+#: src/prefs.js:33
+msgid "Button 4"
+msgstr "Botão 4"
+
+#: src/prefs.js:34
+msgid "Button 5"
+msgstr "Botão 5"
+
+#: src/prefs.js:35
+msgid "Button 6"
+msgstr "Botão 6"
+
+#: src/prefs.js:36
+msgid "Button 7"
+msgstr "Botão 7"
+
+#: src/prefs.js:37
+msgid "Button 8"
+msgstr "Botão 8"
+
+#: src/prefs.js:38
+msgid "Button 9"
+msgstr "Botão 9"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:17
+msgid "Mouse button to close"
+msgstr "Botão do meio do rato"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:18
+msgid "Which mouse button triggers closing in overview."
+msgstr "Qual o botão do rato que fecha uma janela na vista geral."
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:23
+msgid "Rearrange delay"
+msgstr "Duração de reorganizar"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:24
+msgid ""
+"How much time must pass with the pointer not moving for windows in overview "
+"to rearrange after one was closed."
+msgstr ""
+"Quanto tempo tem de passar sem que o cursor se mova para que as janelas na visão geral "
+"se reorganizem depois de uma ter sido fechada."
