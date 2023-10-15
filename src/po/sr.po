@@ -1,6 +1,6 @@
 # Translation for gnome-shell-extension-middleclickclose in Serbian (Cyrillic).
 # Copyright (C) 2023
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the gnome-shell-extension-middleclickclose package.
 # Fifty Dinar <srbaizoki4@tuta.io>, 2023.
 #
 msgid ""
