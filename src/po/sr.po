@@ -1,0 +1,75 @@
+# Translation for gnome-shell-extension-middleclickclose in Serbian (Cyrillic).
+# Copyright (C) 2023
+# This file is distributed under the same license as the gnome-shell-extension-middleclickclose package.
+# Fifty Dinar <srbaizoki4@tuta.io>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-02 18:28+0300\n"
+"PO-Revision-Date: 2023-10-15 18:51+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4\n"
+
+#: src/prefs.js:30
+msgid "Left"
+msgstr "Лево"
+
+#: src/prefs.js:31
+msgid "Middle"
+msgstr "Средње"
+
+#: src/prefs.js:32
+msgid "Right"
+msgstr "Десно"
+
+#: src/prefs.js:33
+msgid "Button 4"
+msgstr "Дугме 4"
+
+#: src/prefs.js:34
+msgid "Button 5"
+msgstr "Дугме 5"
+
+#: src/prefs.js:35
+msgid "Button 6"
+msgstr "Дугме 6"
+
+#: src/prefs.js:36
+msgid "Button 7"
+msgstr "Дугме 7"
+
+#: src/prefs.js:37
+msgid "Button 8"
+msgstr "Дугме 8"
+
+#: src/prefs.js:38
+msgid "Button 9"
+msgstr "Дугме 9"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:17
+msgid "Mouse button to close"
+msgstr "Дугме на мишу за затварање апликација"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:18
+msgid "Which mouse button triggers closing in overview."
+msgstr "Које дугме на мишу затвара апликацију у прегледнику."
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:23
+msgid "Rearrange delay"
+msgstr "Задршка у распоређивању"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:24
+msgid ""
+"How much time must pass with the pointer not moving for windows in overview "
+"to rearrange after one was closed."
+msgstr ""
+"Колико времена мора да прође приликом непомерања показивача миша за прозоре "
+"апликација у прегледнику, како би се прозори распоредили након затварања "
+"апликације."
