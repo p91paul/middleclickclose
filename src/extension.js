@@ -25,6 +25,7 @@ import { Extension, InjectionManager }
 	from 'resource:///org/gnome/shell/extensions/extension.js';
 import { Workspace } from 'resource:///org/gnome/shell/ui/workspace.js';
 import { WindowPreview } from 'resource:///org/gnome/shell/ui/windowPreview.js';
+import { ControlsState } from 'resource:///org/gnome/shell/ui/overviewControls.js';
 
 import { SettingsWatch } from './settingsWatch.js';
 
@@ -136,21 +137,39 @@ export default class MiddleClickClose extends Extension {
 	#patchKeyClose() {
 		// If Meta.KeyBindingAction.CLOSE is fired in while a WindowPreview is focused, close it.
 		const refocusOnClose = this.#refocusOnClose;
-		this.#injectionManager.overrideMethod(WindowPreview.prototype, 'vfunc_key_press_event',
-			original => function (event) {
 
-				const action = global.display.get_keybinding_action(
-					event.get_key_code(), event.get_state());
-				if (action == Meta.KeyBindingAction.CLOSE) {
+		function handleKeyPress(event) {
 
+			// We only care about window picker mode.
+			if (this._workspace._overviewAdjustment.value !== ControlsState.WINDOW_PICKER) {
+				return false;
+			}
+
+			const action = global.display.get_keybinding_action(
+				event.get_key_code(), event.get_state());
+			if (action == Meta.KeyBindingAction.CLOSE) {
+
+				if (this._workspace.metaWorkspace?.active) {
 					// Imediately refocus on another window when closing via keyboard.
 					refocusOnClose.add(this.metaWindow);
 
+					// Close the window.
 					this._deleteAll();
-					return true;
+				} else {
+					// Switch to the workspace the focused window is in.
+					this._workspace.metaWorkspace?.activate(global.get_current_time())
 				}
 
-				return original.apply(this, arguments);
+				return true;
+			}
+
+			return false;
+		}
+
+		this.#injectionManager.overrideMethod(WindowPreview.prototype, 'vfunc_key_press_event',
+			original => function () {
+				return handleKeyPress.apply(this, arguments)
+					|| original.apply(this, arguments);
 			}
 		)
 	}
