@@ -32,11 +32,15 @@ export default class MiddleClickClose extends Extension {
 	#settings;
 	#injectionManager;
 
+	#refocusOnClose;
+
 	enable() {
 		this.#settings = new SettingsWatch(this.getSettings(), {
 			close_button: { get: v => v.value, },
 			rearrange_delay: {},
 		});
+
+		this.#refocusOnClose = new WeakSet();
 
 		this.#injectionManager = new InjectionManager();
 		this.#patchClickHandler();
@@ -47,6 +51,9 @@ export default class MiddleClickClose extends Extension {
 	disable() {
 		this.#injectionManager.clear();
 		this.#injectionManager = null;
+
+		this.#refocusOnClose.clear();
+		this.#refocusOnClose = null;
 
 		this.#settings.clear();
 		this.#settings = null;
@@ -85,10 +92,31 @@ export default class MiddleClickClose extends Extension {
 		// apparently that is impossible with the switch to ESM. Instead, we'll monkey-patch
 		// _doRemoveWindow() and change the timeout after the fact.
 		const settings = this.#settings;
+		const refocusOnClose = this.#refocusOnClose;
 		const lastLayoutFrozenIds = new WeakMap();
+
 		this.#injectionManager.overrideMethod(Workspace.prototype, '_doRemoveWindow',
-			original => function () {
+			original => function (metaWin) {
+
+				// Grab the old window's focus chain index.
+				let focus_idx = this.get_focus_chain()
+					.findIndex(clone => clone.metaWindow == metaWin);
+
+				// Call the original method.
 				const ret = original.apply(this, arguments);
+
+				if (refocusOnClose.has(metaWin)) {
+					// Find a "nearby" window to refocus to, based on the old index
+					const chain = this.get_focus_chain();
+					if (focus_idx >= chain.length) {
+						focus_idx = chain.length - 1;
+					}
+
+					// Focus on the selected window.
+					if (focus_idx >= 0) {
+						global.stage.key_focus = chain[focus_idx];
+					}
+				}
 
 				// Adjust the freeze delay.
 				if (this._layoutFrozenId > 0
@@ -101,19 +129,23 @@ export default class MiddleClickClose extends Extension {
 				// Need to keep the last id to avoid adjusting the layout freeze delay more than
 				// once.
 				lastLayoutFrozenIds.set(this, this._layoutFrozenId);
-
 				return ret;
 			})
 	}
 
 	#patchKeyClose() {
 		// If Meta.KeyBindingAction.CLOSE is fired in while a WindowPreview is focused, close it.
+		const refocusOnClose = this.#refocusOnClose;
 		this.#injectionManager.overrideMethod(WindowPreview.prototype, 'vfunc_key_press_event',
 			original => function (event) {
 
 				const action = global.display.get_keybinding_action(
 					event.get_key_code(), event.get_state());
 				if (action == Meta.KeyBindingAction.CLOSE) {
+
+					// Imediately refocus on another window when closing via keyboard.
+					refocusOnClose.add(this.metaWindow);
+
 					this._deleteAll();
 					return true;
 				}
