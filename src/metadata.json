@@ -3,7 +3,8 @@
 	"description": "Close windows with a button click (the middle one by default) when in overview mode",
 	"url": "https://github.com/p91paul/middleclickclose",
 	"shell-version": [
-		"45"
+		"45",
+		"46"
 	],
 	"uuid": "middleclickclose@paolo.tranquilli.gmail.com",
 	"settings-schema": "org.gnome.shell.extensions.middleclickclose",
