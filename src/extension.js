@@ -19,10 +19,12 @@
 
 import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
+import Meta from 'gi://Meta';
 
 import { Extension, InjectionManager }
 	from 'resource:///org/gnome/shell/extensions/extension.js';
 import { Workspace } from 'resource:///org/gnome/shell/ui/workspace.js';
+import { WindowPreview } from 'resource:///org/gnome/shell/ui/windowPreview.js';
 
 import { SettingsWatch } from './settingsWatch.js';
 
@@ -39,6 +41,7 @@ export default class MiddleClickClose extends Extension {
 		this.#injectionManager = new InjectionManager();
 		this.#patchClickHandler();
 		this.#patchWindowRepositioningDelay();
+		this.#patchKeyClose();
 	}
 
 	disable() {
@@ -101,5 +104,22 @@ export default class MiddleClickClose extends Extension {
 
 				return ret;
 			})
+	}
+
+	#patchKeyClose() {
+		// If Meta.KeyBindingAction.CLOSE is fired in while a WindowPreview is focused, close it.
+		this.#injectionManager.overrideMethod(WindowPreview.prototype, 'vfunc_key_press_event',
+			original => function (event) {
+
+				const action = global.display.get_keybinding_action(
+					event.get_key_code(), event.get_state());
+				if (action == Meta.KeyBindingAction.CLOSE) {
+					this._deleteAll();
+					return true;
+				}
+
+				return original.apply(this, arguments);
+			}
+		)
 	}
 };

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-11 23:56+0100\n"
+"POT-Creation-Date: 2024-07-09 11:39+0300\n"
 "PO-Revision-Date: 2023-10-11 23:56+0100\n"
 "Last-Translator: Tomás Marques <tomasm576@gmail.com>\n"
 "Language-Team: \n"
@@ -15,39 +15,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/prefs.js:30
+#: src/prefs.js:31
 msgid "Left"
 msgstr "Esquerda"
 
-#: src/prefs.js:31
+#: src/prefs.js:32
 msgid "Middle"
 msgstr "Meio"
 
-#: src/prefs.js:32
+#: src/prefs.js:33
 msgid "Right"
 msgstr "Direita"
 
-#: src/prefs.js:33
+#: src/prefs.js:34
 msgid "Button 4"
 msgstr "Botão 4"
 
-#: src/prefs.js:34
+#: src/prefs.js:35
 msgid "Button 5"
 msgstr "Botão 5"
 
-#: src/prefs.js:35
+#: src/prefs.js:36
 msgid "Button 6"
 msgstr "Botão 6"
 
-#: src/prefs.js:36
+#: src/prefs.js:37
 msgid "Button 7"
 msgstr "Botão 7"
 
-#: src/prefs.js:37
+#: src/prefs.js:38
 msgid "Button 8"
 msgstr "Botão 8"
 
-#: src/prefs.js:38
+#: src/prefs.js:39
 msgid "Button 9"
 msgstr "Botão 9"
 
@@ -68,5 +68,5 @@ msgid ""
 "How much time must pass with the pointer not moving for windows in overview "
 "to rearrange after one was closed."
 msgstr ""
-"Quanto tempo tem de passar sem que o cursor se mova para que as janelas na visão geral "
-"se reorganizem depois de uma ter sido fechada."
+"Quanto tempo tem de passar sem que o cursor se mova para que as janelas na "
+"visão geral se reorganizem depois de uma ter sido fechada."

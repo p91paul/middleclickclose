@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-22 00:00+0300\n"
+"POT-Creation-Date: 2024-07-09 11:39+0300\n"
 "PO-Revision-Date: 2023-10-22 00:00+0300\n"
 "Last-Translator: Artem Prokop <artem.prokop.dev@gmail.com>\n"
 "Language-Team: \n"
@@ -16,39 +16,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/prefs.js:30
+#: src/prefs.js:31
 msgid "Left"
 msgstr "Ліва"
 
-#: src/prefs.js:31
+#: src/prefs.js:32
 msgid "Middle"
 msgstr "Середня"
 
-#: src/prefs.js:32
+#: src/prefs.js:33
 msgid "Right"
 msgstr "Права"
 
-#: src/prefs.js:33
+#: src/prefs.js:34
 msgid "Button 4"
 msgstr "Кнопка 4"
 
-#: src/prefs.js:34
+#: src/prefs.js:35
 msgid "Button 5"
 msgstr "Кнопка 5"
 
-#: src/prefs.js:35
+#: src/prefs.js:36
 msgid "Button 6"
 msgstr "Кнопка 6"
 
-#: src/prefs.js:36
+#: src/prefs.js:37
 msgid "Button 7"
 msgstr "Кнопка 7"
 
-#: src/prefs.js:37
+#: src/prefs.js:38
 msgid "Button 8"
 msgstr "Кнопка 8"
 
-#: src/prefs.js:38
+#: src/prefs.js:39
 msgid "Button 9"
 msgstr "Кнопка 9"
 
@@ -69,5 +69,5 @@ msgid ""
 "How much time must pass with the pointer not moving for windows in overview "
 "to rearrange after one was closed."
 msgstr ""
-"Скільки часу курсор має не рухатись щоб вікна в оверв'ю перерозташувалися"
-" після закриття вікна."
+"Скільки часу курсор має не рухатись щоб вікна в оверв'ю перерозташувалися "
+"після закриття вікна."

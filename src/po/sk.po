@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-30 18:29+0300\n"
+"POT-Creation-Date: 2024-07-09 11:39+0300\n"
 "PO-Revision-Date: 2015-10-30 07:08+0100\n"
 "Last-Translator: Juraj Fiala <doctorjellyface@riseup.net>\n"
 "Language-Team: \n"
@@ -18,39 +18,39 @@ msgstr ""
 "X-Generator: Poedit 1.8.5\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: src/prefs.js:30
+#: src/prefs.js:31
 msgid "Left"
 msgstr "Ľavé"
 
-#: src/prefs.js:31
+#: src/prefs.js:32
 msgid "Middle"
 msgstr "Stredné"
 
-#: src/prefs.js:32
+#: src/prefs.js:33
 msgid "Right"
 msgstr "Pravé"
 
-#: src/prefs.js:33
+#: src/prefs.js:34
 msgid "Button 4"
 msgstr "Tlačidlo 4"
 
-#: src/prefs.js:34
+#: src/prefs.js:35
 msgid "Button 5"
 msgstr "Tlačidlo 5"
 
-#: src/prefs.js:35
+#: src/prefs.js:36
 msgid "Button 6"
 msgstr "Tlačidlo 6"
 
-#: src/prefs.js:36
+#: src/prefs.js:37
 msgid "Button 7"
 msgstr "Tlačidlo 7"
 
-#: src/prefs.js:37
+#: src/prefs.js:38
 msgid "Button 8"
 msgstr "Tlačidlo 8"
 
-#: src/prefs.js:38
+#: src/prefs.js:39
 msgid "Button 9"
 msgstr "Tlačidlo 9"
 

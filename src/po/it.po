@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-30 18:29+0300\n"
+"POT-Creation-Date: 2024-07-09 11:39+0300\n"
 "PO-Revision-Date: 2017-04-21 10:06+0200\n"
 "Last-Translator: Jimmy Scionti <jimmy.scionti@gmail.com>\n"
 "Language-Team: Jimmy Scionti <jimmy.scionti@gmail.com>\n"
@@ -18,39 +18,39 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/prefs.js:30
+#: src/prefs.js:31
 msgid "Left"
 msgstr "Sinistro"
 
-#: src/prefs.js:31
+#: src/prefs.js:32
 msgid "Middle"
 msgstr "Centrale"
 
-#: src/prefs.js:32
+#: src/prefs.js:33
 msgid "Right"
 msgstr "Destro"
 
-#: src/prefs.js:33
+#: src/prefs.js:34
 msgid "Button 4"
 msgstr "Pulsante 4"
 
-#: src/prefs.js:34
+#: src/prefs.js:35
 msgid "Button 5"
 msgstr "Pulsante 5"
 
-#: src/prefs.js:35
+#: src/prefs.js:36
 msgid "Button 6"
 msgstr "Pulsante 6"
 
-#: src/prefs.js:36
+#: src/prefs.js:37
 msgid "Button 7"
 msgstr "Pulsante 7"
 
-#: src/prefs.js:37
+#: src/prefs.js:38
 msgid "Button 8"
 msgstr "Pulsante 8"
 
-#: src/prefs.js:38
+#: src/prefs.js:39
 msgid "Button 9"
 msgstr "Pulsante 9"
 

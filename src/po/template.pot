@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-02 18:28+0300\n"
+"POT-Creation-Date: 2024-07-09 11:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,39 +17,39 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/prefs.js:30
+#: src/prefs.js:31
 msgid "Left"
 msgstr ""
 
-#: src/prefs.js:31
+#: src/prefs.js:32
 msgid "Middle"
 msgstr ""
 
-#: src/prefs.js:32
+#: src/prefs.js:33
 msgid "Right"
 msgstr ""
 
-#: src/prefs.js:33
+#: src/prefs.js:34
 msgid "Button 4"
 msgstr ""
 
-#: src/prefs.js:34
+#: src/prefs.js:35
 msgid "Button 5"
 msgstr ""
 
-#: src/prefs.js:35
+#: src/prefs.js:36
 msgid "Button 6"
 msgstr ""
 
-#: src/prefs.js:36
+#: src/prefs.js:37
 msgid "Button 7"
 msgstr ""
 
-#: src/prefs.js:37
+#: src/prefs.js:38
 msgid "Button 8"
 msgstr ""
 
-#: src/prefs.js:38
+#: src/prefs.js:39
 msgid "Button 9"
 msgstr ""
 
