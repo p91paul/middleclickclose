@@ -39,6 +39,7 @@ export default class MiddleClickClose extends Extension {
 		this.#settings = new SettingsWatch(this.getSettings(), {
 			close_button: { get: v => v.value, },
 			rearrange_delay: {},
+			keyboard_close: {},
 		});
 
 		this.#refocusOnClose = new WeakSet();
@@ -136,9 +137,15 @@ export default class MiddleClickClose extends Extension {
 
 	#patchKeyClose() {
 		// If Meta.KeyBindingAction.CLOSE is fired in while a WindowPreview is focused, close it.
+		const settings = this.#settings;
 		const refocusOnClose = this.#refocusOnClose;
 
 		function handleKeyPress(event) {
+
+			// Keyboard close disabled in settings.
+			if (!settings.keyboard_close) {
+				return false;
+			}
 
 			// We only care about window picker mode.
 			if (this._workspace._overviewAdjustment.value !== ControlsState.WINDOW_PICKER) {

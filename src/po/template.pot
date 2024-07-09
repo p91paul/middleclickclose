@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-09 11:39+0300\n"
+"POT-Creation-Date: 2024-07-09 15:57+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -61,11 +61,19 @@ msgstr ""
 msgid "Which mouse button triggers closing in overview."
 msgstr ""
 
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:22
+msgid "Close with keyboard"
+msgstr ""
+
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:23
+msgid "Allow closing windows in overview via keyboard shortcuts."
+msgstr ""
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:28
 msgid "Rearrange delay"
 msgstr ""
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:24
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:29
 msgid ""
 "How much time must pass with the pointer not moving for windows in overview "
 "to rearrange after one was closed."

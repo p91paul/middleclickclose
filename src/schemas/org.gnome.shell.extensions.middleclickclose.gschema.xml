@@ -17,6 +17,11 @@
       <summary>Mouse button to close</summary>
       <description>Which mouse button triggers closing in overview.</description>
     </key>
+    <key type="b" name="keyboard-close">
+      <default>true</default>
+      <summary>Close with keyboard</summary>
+      <description>Allow closing windows in overview via keyboard shortcuts.</description>
+    </key>
     <key type="i" name="rearrange-delay">
       <default>750</default>
       <range min="0" max="5000" />

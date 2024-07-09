@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-09 11:39+0300\n"
+"POT-Creation-Date: 2024-07-09 15:57+0300\n"
 "PO-Revision-Date: 2015-12-30 07:08+0100\n"
 "Last-Translator: DAEM Q.\n"
 "Language-Team: \n"
@@ -64,11 +64,19 @@ msgstr ""
 "Le bouton de la souris qui déclenche la fermeture d'une fenêtre dans la Vue "
 "d'ensemble."
 
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:22
+msgid "Close with keyboard"
+msgstr ""
+
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:23
+msgid "Allow closing windows in overview via keyboard shortcuts."
+msgstr ""
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:28
 msgid "Rearrange delay"
 msgstr "Délai avant réarrangement"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:24
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:29
 msgid ""
 "How much time must pass with the pointer not moving for windows in overview "
 "to rearrange after one was closed."
