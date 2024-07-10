@@ -54,7 +54,6 @@ export default class MiddleClickClose extends Extension {
 		this.#injectionManager.clear();
 		this.#injectionManager = null;
 
-		this.#refocusOnClose.clear();
 		this.#refocusOnClose = null;
 
 		this.#settings.clear();
