@@ -18,7 +18,7 @@ GNOME shell extension for quickly closing apps in the overview.
 Make sure `gettext` is installed on your system and the `gnome-extensions` executable is available
 on your `PATH` (It is typically bundled with `gnome-shell`).
 
-Afterwards, simply run `make` to build a zip suitable for submition to
+Afterwards, simply run `make` to build a zip suitable for submission to
 [EGO](https://extensions.gnome.org/).
 
 `make install` can also be used to install the extension for the current user.

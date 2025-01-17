@@ -156,7 +156,7 @@ export default class MiddleClickClose extends Extension {
 			if (action == Meta.KeyBindingAction.CLOSE) {
 
 				if (this._workspace.metaWorkspace?.active) {
-					// Imediately refocus on another window when closing via keyboard.
+					// Immediately refocus on another window when closing via keyboard.
 					refocusOnClose.add(this.metaWindow);
 
 					// Close the window.
