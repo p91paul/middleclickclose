@@ -40,11 +40,16 @@ export default class MiddleClickClosePreferences extends ExtensionPreferences {
             },
         }));
 
+        group.add(this.buildPreference("close-button-modifiers"));
+
+        group.add(this.buildPreference("keyboard-close"));
+
+        page.add(group);
+
+        group = new Adw.PreferencesGroup();
         group.add(this.buildPreference("rearrange-delay", {
             step: 50,
         }));
-
-        group.add(this.buildPreference("keyboard-close"))
 
         page.add(group);
         return page;
@@ -68,7 +73,7 @@ export default class MiddleClickClosePreferences extends ExtensionPreferences {
             let row = new Adw.ComboRow({
                 title: opts.title,
                 subtitle: opts.subtitle,
-                model: new Gtk.StringList({ strings: range.map(nick => opts.nicks[nick]) }),
+                model: new Gtk.StringList({ strings: range.map(nick => opts.nicks[nick] ?? nick) }),
                 selected: range.indexOf(setting.state.unpack()),
             });
 
@@ -77,10 +82,62 @@ export default class MiddleClickClosePreferences extends ExtensionPreferences {
             });
 
             return row;
+        } if (range_ty == "flags") {
+            opts.nicks ??= {};
+
+            let row = new Adw.ExpanderRow({
+                title: opts.title,
+                subtitle: opts.subtitle,
+            });
+
+            let label = new Gtk.Label();
+            row.add_suffix(label);
+
+            let selected = new Map(setting.state.unpack().map(nick => [nick.unpack(), undefined]));
+            let update_selected = () => label.label = range
+                .filter(nick => selected.has(nick))
+                .map(nick => selected.get(nick))
+                .join(', ');
+
+            for (const nick of range) {
+                let title = opts.nicks[nick] ?? nick;
+                title = title.replace(/^./u, c => c.toUpperCase());
+
+                let active = selected.has(nick);
+
+                if (active) {
+                    selected.set(nick, title);
+                }
+
+                let flag_switch = new Adw.SwitchRow({ title, active });
+
+                flag_switch.connect('notify::active', () => {
+                    if (flag_switch.active) {
+                        selected.set(nick, title);
+                    } else {
+                        selected.delete(nick);
+                    }
+
+                    update_selected();
+
+                    let new_state = GLib.Variant.new_array(
+                        new GLib.VariantType('s'),
+                        Array.from(selected.keys()).map(s => GLib.Variant.new_string(s))
+                    );
+                    setting.change_state(new_state);
+                });
+
+                row.add_row(flag_switch);
+            }
+
+            update_selected();
+
+            return row;
         } else if (range_ty == "range") {
             opts.lower ??= range[0]
             opts.upper ??= range[1]
         }
+
 
         if (ty == "b") {
             let row = new Adw.SwitchRow({

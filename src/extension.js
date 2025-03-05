@@ -20,6 +20,7 @@
 import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 import Meta from 'gi://Meta';
+import Clutter from 'gi://Clutter';
 
 import { Extension, InjectionManager }
 	from 'resource:///org/gnome/shell/extensions/extension.js';
@@ -38,6 +39,24 @@ export default class MiddleClickClose extends Extension {
 	enable() {
 		this.#settings = new SettingsWatch(this.getSettings(), {
 			close_button: { get: v => v.value, },
+			close_button_modifiers: {
+				get(nicks) {
+					let flags = 0;
+					for (const nick of nicks) {
+						switch (nick) {
+							case 'shift':
+								flags |= Clutter.ModifierType.SHIFT_MASK;
+								break;
+							case 'control':
+								flags |= Clutter.ModifierType.CONTROL_MASK;
+								break;
+							default:
+								throw new GObject.NotImplementedError();
+						}
+					}
+					return flags;
+				}
+			},
 			rearrange_delay: {},
 			keyboard_close: {},
 		});
@@ -64,9 +83,25 @@ export default class MiddleClickClose extends Extension {
 		// Patch _addWindowClone() to override the clicked signal handler for window clones (which
 		// is what gnome calls window previews).
 		const settings = this.#settings;
+
 		this.#injectionManager.overrideMethod(Workspace.prototype, '_addWindowClone',
 			original => function () {
 				let clone = original.apply(this, arguments);
+
+				// Normally we should just be able to access the modifiers via
+				// ClickAction.get_state(). However as of gnome 48, it is straight up broken. This
+				// is a workaround until I get around to submitting a fix upstream.
+				let modifier_state = 0;
+				clone.connect('captured-event', (_actor, event) => {
+					switch (event.type()) {
+						case Clutter.EventType.BUTTON_PRESS:
+							modifier_state = event.get_state();
+							break;
+						case Clutter.EventType.BUTTON_RELEASE:
+							modifier_state &= event.get_state();
+							break;
+					}
+				});
 
 				// This relies on implementation details of both gnome and gobject. Mainly the order
 				// the clone's actions are defined and the order with which signal handlers are
@@ -76,7 +111,9 @@ export default class MiddleClickClose extends Extension {
 				let id = GObject.signal_handler_find(clickAction, { signalId: 'clicked' });
 				clickAction.disconnect(id);
 				clickAction.connect('clicked', action => {
-					if (action.get_button() == settings.close_button) {
+					const close_modifiers = settings.close_button_modifiers;
+					if (action.get_button() == settings.close_button
+						&& (modifier_state & close_modifiers) == close_modifiers) {
 						clone._deleteAll();
 					} else {
 						clone._activate();

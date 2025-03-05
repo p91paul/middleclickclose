@@ -22,7 +22,7 @@ export class SettingsWatch {
             key = opts;
             opts = {};
         } else {
-            key = opts.key ?? prop_name.replace('_', '-');
+            key = opts.key ?? prop_name.replace(/_/g, '-');
         }
 
         const settings = this.#settings;
