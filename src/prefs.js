@@ -28,9 +28,9 @@ export default class MiddleClickClosePreferences extends ExtensionPreferences {
 
         group.add(this.buildPreference("close-button", {
             nicks: {
-                left: _("Left"),
+                primary: _("Primary"),
                 middle: _("Middle"),
-                right: _("Right"),
+                secondary: _("Secondary"),
                 'button 4': _("Button 4"),
                 'button 5': _("Button 5"),
                 'button 6': _("Button 6"),
