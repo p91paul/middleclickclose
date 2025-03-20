@@ -7,26 +7,27 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-09 15:57+0300\n"
-"PO-Revision-Date: 2023-10-22 00:00+0300\n"
-"Last-Translator: Artem Prokop <artem.prokop.dev@gmail.com>\n"
+"POT-Creation-Date: 2025-03-20 22:07+0200\n"
+"PO-Revision-Date: 2025-03-20 23:50+0200\n"
+"Last-Translator: Yevhen Popok <xalt7x.service@gmail.com>\n"
 "Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
 
 #: src/prefs.js:31
-msgid "Left"
-msgstr "Ліва"
+msgid "Primary"
+msgstr "Основна"
 
 #: src/prefs.js:32
 msgid "Middle"
 msgstr "Середня"
 
 #: src/prefs.js:33
-msgid "Right"
-msgstr "Права"
+msgid "Secondary"
+msgstr "Вторинна"
 
 #: src/prefs.js:34
 msgid "Button 4"
@@ -54,19 +55,19 @@ msgstr "Кнопка 9"
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:17
 msgid "Mouse button to close"
-msgstr "Кнопка миші для закриття"
+msgstr "Кнопка миші, що закриває"
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:18
 msgid "Which mouse button triggers closing in overview."
-msgstr "Яка кнопка миші закриває вікно в оверв'ю"
+msgstr "Якою кнопкою миші закривати вікна в огляді."
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:22
 msgid "Close with keyboard"
-msgstr ""
+msgstr "Закривати з клавіатури"
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:23
 msgid "Allow closing windows in overview via keyboard shortcuts."
-msgstr ""
+msgstr "Дозволити закривати вікна в огляді клавіатурними скороченнями."
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:28
 msgid "Rearrange delay"
@@ -77,5 +78,5 @@ msgid ""
 "How much time must pass with the pointer not moving for windows in overview "
 "to rearrange after one was closed."
 msgstr ""
-"Скільки часу курсор має не рухатись щоб вікна в оверв'ю перерозташувалися "
-"після закриття вікна."
+"Скільки часу вказівник має бути нерухомим, щоб після закриття вікна в "
+"огляді, інші перерозташувалися ."
