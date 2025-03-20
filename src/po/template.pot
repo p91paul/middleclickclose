@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-09 15:57+0300\n"
+"POT-Creation-Date: 2025-03-20 22:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/prefs.js:31
-msgid "Left"
+msgid "Primary"
 msgstr ""
 
 #: src/prefs.js:32
@@ -26,7 +26,7 @@ msgid "Middle"
 msgstr ""
 
 #: src/prefs.js:33
-msgid "Right"
+msgid "Secondary"
 msgstr ""
 
 #: src/prefs.js:34
