@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-09 15:57+0300\n"
+"POT-Creation-Date: 2025-04-16 10:02+0300\n"
 "PO-Revision-Date: 2023-10-15 18:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,16 +18,16 @@ msgstr ""
 "X-Generator: Poedit 3.4\n"
 
 #: src/prefs.js:31
-msgid "Left"
-msgstr "Levo"
+msgid "Primary"
+msgstr ""
 
 #: src/prefs.js:32
 msgid "Middle"
 msgstr "Srednje"
 
 #: src/prefs.js:33
-msgid "Right"
-msgstr "Desno"
+msgid "Secondary"
+msgstr ""
 
 #: src/prefs.js:34
 msgid "Button 4"
@@ -53,27 +53,39 @@ msgstr "Dugme 8"
 msgid "Button 9"
 msgstr "Dugme 9"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:17
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:21
 msgid "Mouse button to close"
 msgstr "Dugme na mišu za zatvaranje aplikacija"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:18
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:22
 msgid "Which mouse button triggers closing in overview."
 msgstr "Koje dugme na mišu zatvara aplikaciju u pregledniku."
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:22
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:26
+#, fuzzy
+msgid "Modifiers for mouse button close"
+msgstr "Dugme na mišu za zatvaranje aplikacija"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:27
+#, fuzzy
+msgid ""
+"Modifiers that need to be pressed in order for the mouse button to trigger "
+"closing in the overview."
+msgstr "Koje dugme na mišu zatvara aplikaciju u pregledniku."
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:31
 msgid "Close with keyboard"
 msgstr ""
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:23
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:32
 msgid "Allow closing windows in overview via keyboard shortcuts."
 msgstr ""
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:28
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:37
 msgid "Rearrange delay"
 msgstr "Zadrška u raspoređivanju"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:29
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:38
 msgid ""
 "How much time must pass with the pointer not moving for windows in overview "
 "to rearrange after one was closed."
@@ -81,3 +93,9 @@ msgstr ""
 "Koliko vremena mora da prođe prilikom nepomeranja pokazivača miša za prozore "
 "aplikacija u pregledniku, kako bi se prozori rasporedili nakon zatvaranja "
 "aplikacije."
+
+#~ msgid "Left"
+#~ msgstr "Levo"
+
+#~ msgid "Right"
+#~ msgstr "Desno"

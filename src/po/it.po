@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-09 15:57+0300\n"
+"POT-Creation-Date: 2025-04-16 10:02+0300\n"
 "PO-Revision-Date: 2017-04-21 10:06+0200\n"
 "Last-Translator: Jimmy Scionti <jimmy.scionti@gmail.com>\n"
 "Language-Team: Jimmy Scionti <jimmy.scionti@gmail.com>\n"
@@ -19,16 +19,16 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/prefs.js:31
-msgid "Left"
-msgstr "Sinistro"
+msgid "Primary"
+msgstr ""
 
 #: src/prefs.js:32
 msgid "Middle"
 msgstr "Centrale"
 
 #: src/prefs.js:33
-msgid "Right"
-msgstr "Destro"
+msgid "Secondary"
+msgstr ""
 
 #: src/prefs.js:34
 msgid "Button 4"
@@ -54,30 +54,48 @@ msgstr "Pulsante 8"
 msgid "Button 9"
 msgstr "Pulsante 9"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:17
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:21
 msgid "Mouse button to close"
 msgstr "Pulsante del mouse per chiudere la finestra"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:18
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:22
 msgid "Which mouse button triggers closing in overview."
 msgstr "Seleziona quale pulsante del mouse premere per chiudere una finestra."
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:22
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:26
+#, fuzzy
+msgid "Modifiers for mouse button close"
+msgstr "Pulsante del mouse per chiudere la finestra"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:27
+#, fuzzy
+msgid ""
+"Modifiers that need to be pressed in order for the mouse button to trigger "
+"closing in the overview."
+msgstr "Seleziona quale pulsante del mouse premere per chiudere una finestra."
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:31
 msgid "Close with keyboard"
 msgstr ""
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:23
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:32
 msgid "Allow closing windows in overview via keyboard shortcuts."
 msgstr ""
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:28
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:37
 msgid "Rearrange delay"
 msgstr "Ritardo del riordinamento"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:29
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:38
 msgid ""
 "How much time must pass with the pointer not moving for windows in overview "
 "to rearrange after one was closed."
 msgstr ""
 "Seleziona il tempo di attesa tra la chiusura di una finestra e il "
 "riordinamento delle altre finestre nell'anteprima."
+
+#~ msgid "Left"
+#~ msgstr "Sinistro"
+
+#~ msgid "Right"
+#~ msgstr "Destro"

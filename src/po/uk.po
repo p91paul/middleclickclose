@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-shell-extensions-middleclickclose\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-09 15:57+0300\n"
+"POT-Creation-Date: 2025-04-16 10:02+0300\n"
 "PO-Revision-Date: 2023-10-22 00:00+0300\n"
 "Last-Translator: Artem Prokop <artem.prokop.dev@gmail.com>\n"
 "Language-Team: \n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/prefs.js:31
-msgid "Left"
-msgstr "Ліва"
+msgid "Primary"
+msgstr ""
 
 #: src/prefs.js:32
 msgid "Middle"
 msgstr "Середня"
 
 #: src/prefs.js:33
-msgid "Right"
-msgstr "Права"
+msgid "Secondary"
+msgstr ""
 
 #: src/prefs.js:34
 msgid "Button 4"
@@ -52,30 +52,48 @@ msgstr "Кнопка 8"
 msgid "Button 9"
 msgstr "Кнопка 9"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:17
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:21
 msgid "Mouse button to close"
 msgstr "Кнопка миші для закриття"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:18
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:22
 msgid "Which mouse button triggers closing in overview."
 msgstr "Яка кнопка миші закриває вікно в оверв'ю"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:22
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:26
+#, fuzzy
+msgid "Modifiers for mouse button close"
+msgstr "Кнопка миші для закриття"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:27
+#, fuzzy
+msgid ""
+"Modifiers that need to be pressed in order for the mouse button to trigger "
+"closing in the overview."
+msgstr "Яка кнопка миші закриває вікно в оверв'ю"
+
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:31
 msgid "Close with keyboard"
 msgstr ""
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:23
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:32
 msgid "Allow closing windows in overview via keyboard shortcuts."
 msgstr ""
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:28
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:37
 msgid "Rearrange delay"
 msgstr "Затримка перерозташування"
 
-#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:29
+#: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:38
 msgid ""
 "How much time must pass with the pointer not moving for windows in overview "
 "to rearrange after one was closed."
 msgstr ""
 "Скільки часу курсор має не рухатись щоб вікна в оверв'ю перерозташувалися "
 "після закриття вікна."
+
+#~ msgid "Left"
+#~ msgstr "Ліва"
+
+#~ msgid "Right"
+#~ msgstr "Права"
