@@ -23,7 +23,22 @@ Afterwards, simply run `make` to build a zip suitable for submission to
 
 `make install` can also be used to install the extension for the current user.
 
-## Debugging tips & tricks
+## Packaging
+
+```bash
+# Build
+make pack
+
+# Install
+make install-system PREFIX=/usr
+```
+
+For a successful build, these binaries need to be present:
+- `gnome-extensions`
+- `glib-compile-schemas`
+- `unzip`
+
+## Debugging
 
 - `journalctl -f --user` is your friend.
 - `make install && dbus-run-session -- gnome-shell --nested --wayland` allows for quick prototyping
