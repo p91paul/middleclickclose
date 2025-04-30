@@ -14,9 +14,9 @@ install: pack
 	gnome-extensions install --force ${UUID}.shell-extension.zip
 
 install-system: pack
-	mkdir -p ${EXTENSION_DIR}
-	unzip -o ${UUID}.shell-extension.zip -d ${EXTENSION_DIR}
-	glib-compile-schemas ${EXTENSION_DIR}/schemas
+	mkdir -p "${EXTENSION_DIR}"
+	unzip -o ${UUID}.shell-extension.zip -d "${EXTENSION_DIR}"
+	glib-compile-schemas "${EXTENSION_DIR}/schemas"
 
 po: $(wildcard src/po/*.po)
 pot: src/po/template.pot
