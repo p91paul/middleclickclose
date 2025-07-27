@@ -20,7 +20,7 @@ msgstr ""
 
 #: src/prefs.js:31
 msgid "Primary"
-msgstr ""
+msgstr "Primario"
 
 #: src/prefs.js:32
 msgid "Middle"
@@ -28,7 +28,7 @@ msgstr "Centrale"
 
 #: src/prefs.js:33
 msgid "Secondary"
-msgstr ""
+msgstr "Secondario"
 
 #: src/prefs.js:34
 msgid "Button 4"
@@ -56,31 +56,33 @@ msgstr "Pulsante 9"
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:21
 msgid "Mouse button to close"
-msgstr "Pulsante del mouse per chiudere la finestra"
+msgstr "Pulsante del mouse per chiudere le finestre"
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:22
 msgid "Which mouse button triggers closing in overview."
-msgstr "Seleziona quale pulsante del mouse premere per chiudere una finestra."
+msgstr "Seleziona quale pulsante del mouse premere per chiudere le finestre."
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:26
 #, fuzzy
 msgid "Modifiers for mouse button close"
-msgstr "Pulsante del mouse per chiudere la finestra"
+msgstr "Modificatori per chiudere le finestre col mouse"
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:27
 #, fuzzy
 msgid ""
 "Modifiers that need to be pressed in order for the mouse button to trigger "
 "closing in the overview."
-msgstr "Seleziona quale pulsante del mouse premere per chiudere una finestra."
+msgstr ""
+"Modificatori da premere insieme al pulsante del mouse per azionare la"
+"chiusura delle finestre nell'anteprima."
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:31
 msgid "Close with keyboard"
-msgstr ""
+msgstr "Chiudi usando la tastiera"
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:32
 msgid "Allow closing windows in overview via keyboard shortcuts."
-msgstr ""
+msgstr "Permette di chiudere le finestre nell'anteprima usando le scorciatoie da tastiera."
 
 #: src/schemas/org.gnome.shell.extensions.middleclickclose.gschema.xml:37
 msgid "Rearrange delay"
@@ -92,7 +94,7 @@ msgid ""
 "to rearrange after one was closed."
 msgstr ""
 "Seleziona il tempo di attesa tra la chiusura di una finestra e il "
-"riordinamento delle altre finestre nell'anteprima."
+"riordinamento delle altre nell'anteprima."
 
 #~ msgid "Left"
 #~ msgstr "Sinistro"
