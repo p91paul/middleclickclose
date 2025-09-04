@@ -38,13 +38,6 @@ For a successful build, these binaries need to be present:
 - `glib-compile-schemas`
 - `unzip`
 
-## Debugging
-
-- `journalctl -f --user` is your friend.
-- `make install && dbus-run-session -- gnome-shell --nested --wayland` allows for quick prototyping
-  without having to log out and back in every single time when running under wayland.
-- `make install`, then `Alt+F2`, `r` and `Enter` allow for quick prototyping under X11.
-
 ## Translations
 
 If you're interested in contributing a translation, import the translation template file under
@@ -52,3 +45,13 @@ If you're interested in contributing a translation, import the translation templ
 
 To update all existing translations after changing the code, run `make po`. To regenerate only the
 `template.pot` file, run `make pot`.
+
+## Debugging
+
+- `journalctl -f --user` is your friend.
+- `make install && dbus-run-session -- gnome-shell --nested --wayland` allows for quick prototyping
+  without having to log out and back in every single time when running under wayland.
+  - For Gnome 49+, this becomes `gnome-shell --devkit`, which needs `mutter-devkit` to be installed.
+  - Running `dbus-run-session -- $SHELL` and then `make install && gnome-shell --devkit` inside the
+    spawned shell can make for a much faster debugging cycle.
+- `make install`, then `Alt+F2`, `r` and `Enter` allow for quick prototyping under X11.
