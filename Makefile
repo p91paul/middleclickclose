@@ -23,7 +23,6 @@ pot: src/po/template.pot
 
 clean:
 	rm -f ${UUID}.shell-extension.zip
-	rm -f src/po/template.pot
 
 .PHONY: clean all install install-system po pot pack
 
