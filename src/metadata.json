@@ -3,10 +3,6 @@
 	"description": "Close windows with a button click (the middle one by default) when in overview mode",
 	"url": "https://github.com/p91paul/middleclickclose",
 	"shell-version": [
-		"45",
-		"46",
-		"47",
-		"48",
 		"49"
 	],
 	"uuid": "middleclickclose@paolo.tranquilli.gmail.com",

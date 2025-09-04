@@ -83,14 +83,15 @@ export default class MiddleClickClose extends Extension {
 		// Patch _addWindowClone() to override the clicked signal handler for window clones (which
 		// is what gnome calls window previews).
 		const settings = this.#settings;
+		const log = this.getLogger();
 
 		this.#injectionManager.overrideMethod(Workspace.prototype, '_addWindowClone',
 			original => function () {
 				let clone = original.apply(this, arguments);
 
 				// Normally we should just be able to access the modifiers via
-				// ClickAction.get_state(). However as of gnome 48, it is straight up broken. This
-				// is a workaround until I get around to submitting a fix upstream.
+				// ClickGesture.get_state(). However as of gnome 49, it is straight up broken.
+				// This is a workaround until I get around to submitting a fix upstream.
 				let modifier_state = 0;
 				clone.connect('captured-event', (_actor, event) => {
 					switch (event.type()) {
@@ -103,22 +104,21 @@ export default class MiddleClickClose extends Extension {
 					}
 				});
 
-				// This relies on implementation details of both gnome and gobject. Mainly the order
-				// the clone's actions are defined and the order with which signal handlers are
-				// connected on the click action. Just pray this never breaks... Or that gnome moves
-				// the click handler into a named function. That'd be nice too :)
-				let [clickAction] = clone.get_actions();
-				let id = GObject.signal_handler_find(clickAction, { signalId: 'clicked' });
-				clickAction.disconnect(id);
-				clickAction.connect('clicked', action => {
-					const close_modifiers = settings.close_button_modifiers;
-					if (action.get_button() == settings.close_button
-						&& (modifier_state & close_modifiers) == close_modifiers) {
-						clone._deleteAll();
-					} else {
-						clone._activate();
-					}
-				});
+				// What we have to do here is still incredibly fragile, but at least it should
+				// handle failure without crashing the user's shell.
+				try {
+					try_patch_action_handler(clone, Clutter.ClickGesture, 'recognize', action => {
+						const close_modifiers = settings.close_button_modifiers;
+						if (action.get_button() == settings.close_button
+							&& (modifier_state & close_modifiers) == close_modifiers) {
+							clone._deleteAll();
+						} else {
+							clone._activate();
+						}
+					});
+				} catch (err) {
+					log.error(`Failed to install click handler: ${err}`);
+				}
 
 				return clone;
 			}
@@ -217,3 +217,29 @@ export default class MiddleClickClose extends Extension {
 		)
 	}
 };
+
+// This function attempts to patch a single signal handler of an action of a type.
+// Unfortunately, this implies that:
+// - There must be exactly, und exactly, one action of the specified type.
+// - There must be exactly, und exactly, one handler for the specified signal.
+// If these conditions don't hold, this function will raise an exception while not doing any damage
+// to the provided object.
+function try_patch_action_handler(obj, action_type, signalId, callback) {
+	const actions = obj.get_actions().filter(action => action instanceof action_type);
+	if (actions.length == 1) {
+		const [action] = actions;
+
+		const count = GObject.signal_handlers_block_matched(action, { signalId });
+		if (count == 1) {
+			action.connect(signalId, callback)
+		} else {
+			GObject.signal_handlers_unblock_matched(action, { signalId });
+
+			throw `Patch failed: Matched ${count} (!=1) signal handlers `
+			+ `for '${signalId}' on ${action_type.$gtype.name}`;
+		}
+	} else {
+		throw `Patch failed: Matched ${actions.length} (!=1) action `
+		+ `of type ${action_type.$gtype.name}`;
+	}
+}
