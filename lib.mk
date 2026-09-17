@@ -68,8 +68,7 @@ quiet_cmd_install-user-extension = INSTALL-USER $2
 # Install a gnome shell extension for the entire system
 quiet_cmd_install-system-extension = INSTALL-SYSTEM $2
       cmd_install-system-extension = mkdir -p '$(call escsq,$3)' && \
-                                     unzip -q -o '$(call escsq,$2)' -d '$(call escsq,$3)' && \
-                                     $(call raw_cmd,compile-schema,$3/schemas)
+                                     unzip -q -o '$(call escsq,$2)' -d '$(call escsq,$3)'
 
 # Compile glib schemas
 quiet_cmd_compile-schema = COMPILE-SCHEMA $2

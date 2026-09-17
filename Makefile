@@ -2,6 +2,7 @@ PREFIX ?= /usr/local
 
 include lib.mk
 UUID := middleclickclose@paolo.tranquilli.gmail.com
+SYSTEM_INSTALL_DIR := $(PREFIX)/share/gnome-shell/extensions/$(UUID)
 
 .PHONY: all
 all: pack
@@ -18,8 +19,8 @@ install: $(UUID).shell-extension.zip
 # Install extension system-wide at the specified prefix
 .PHONY: install-system
 install-system: $(UUID).shell-extension.zip
-	$(call cmd,install-system-extension,$(UUID).shell-extension.zip,\
-		$(PREFIX)/share/gnome-shell/extensions/$(UUID))
+	$(call cmd,install-system-extension,$(UUID).shell-extension.zip,$(SYSTEM_INSTALL_DIR))
+	$(call cmd,compile-schema,$(SYSTEM_INSTALL_DIR)/schemas)
 
 # Update translation files - only regenerate the template if explicitly requested.
 src/po/template.pot: $(if $(filter %po %pot,$(MAKECMDGOALS)),,|) \
